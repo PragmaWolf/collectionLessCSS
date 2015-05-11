@@ -9,7 +9,7 @@ The file contains:
 - Parametric mixins
 - Figures on CSS
 
-Each impurity or impurities groups have a comment and, if necessary, possible parameters that can be passed in admixture.
+Each mixins or parametric mixins have a comment and, if necessary, possible parameters that can be passed.
 
 I collected this set for themselves. Spread all - suddenly someone will be useful.
 
@@ -21,6 +21,6 @@ I collected this set for themselves. Spread all - suddenly someone will be usefu
 - параметризованные примеси
 - фигуры на CSS
 
-У каждой примеси или группы примесей есть комментарий и, при необходимости, указаны допустимые параметры, которые можно передавать в примесь.
+У каждой примеси или группы примесей есть комментарий и, при необходимости, указаны допустимые параметры, которые можно передавать.
 
 Я собирал этот набор для себя. Выкладываю для всех – вдруг кому-то будет полезно. 
