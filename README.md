@@ -4,9 +4,9 @@ Collection LESS CSS: variables, properties, mixins, parametric mixins and ready-
 ## English
 This is a collection for the Less CSS that I use in layout.
 The file contains:
-- options
-- Impurities (style blank with no parameters)
-- Parameterized impurities
+- Properties
+- Mixins (style blank with no parameters)
+- Parametric mixins
 - Figures on CSS
 
 Each impurity or impurities groups have a comment and, if necessary, possible parameters that can be passed in admixture.
