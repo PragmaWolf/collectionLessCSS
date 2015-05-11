@@ -1,0 +1,1476 @@
+@charset "utf-8";
+
+//============================================================
+//
+// Collection LESS CSS: variables, properties, mixins, parametric mixins and ready-made shapes.
+//
+// @description CSS mixins for projects using LESS CSS
+// @see http://lesscss.org/
+//
+//============================================================
+
+// =============== LESS VARIABLES AND PROPERTIES ================
+// Specify the path to the main folder needed in styles
+// path to the folder with images for use in mixins
+@imgUrl : '/images/';
+// path to the folder with the JS-scripts for use in mixins
+@jsUrl  : '/js/';
+// path to the folder with the style files
+@cssUrl : '/css/';
+
+// Safe font stacks
+// SERIF
+// wide (heavy)
+@fontGeorgia: Georgia, 'Century Schoolbook L', Serif;
+// normal (small)
+@fontPalatinoLinotype: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+// condensed (small)
+@fontTimesNewRoman: 'Times New Roman', 'Times CY', 'Nimbus Roman No9 L', serif;
+// HEAVY
+// normal
+@fontArialBlack: 'Arial Black', 'Helvetica CY', 'Nimbus Sans L' sans-serif;
+// condensed
+@fontImpact: Impact, 'Charcoal CY', sans-serif;
+// WIDE
+// normal
+@fontLucidaSansUnicode: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+// condensed
+@fontLucidiaConsole: 'Lucida Console', Monaco, monospace;
+// AVERAGE
+// normal
+@fontVerdana: Verdana, 'Geneva CY', 'DejaVu Sans', sans-serif;
+// condensed
+@fontTahoma: Tahoma, 'Geneva CY', sans-serif;
+// COMPACT
+// normal
+@fontArial: Arial, 'Helvetica CY', 'Nimbus Sans L', sans-serif;
+// condensed
+@fontTrebuchetMS: 'Trebuchet MS', 'Helvetica CY', sans-serif;
+// DECORATIVE
+@fontComicSansMS: 'Comic Sans MS', 'Monaco CY', cursive;
+// MONOSPACED
+@fontCourierNew: 'Courier New', 'Nimbus Mono L', monospace;
+
+// Set the basic parameters of the font
+// main font
+@fontMain: 'Roboto', @fontVerdana;
+// condensed font
+@fontCondensed: 'Roboto Condensed', @fontTahoma;
+// base font size
+@fontSize: 62.5%;
+
+// Set basic sizes
+@pageMinWidth: 320px;
+@pageMaxWidth: 1920px;
+@radiusLarge: 15px;
+@radiusBig: 10px;
+@radiusMedium: 5px;
+@radiusSmall: 3px;
+@radiusTiny: 1px;
+
+// Set basic colors
+@cWhite: white;
+@cBlack: black;
+// Page background
+@cPageBack: white;
+// Text on page
+@cText: black;
+// Links
+@cLink: blue;
+// Borders
+@cBorder: silver;
+// Shadows
+@cShadow: grey;
+// Placeholders color
+@cPlaceholder: lightgrey;
+
+// =============== /LESS VARIABLES AND PROPERTIES ===============
+
+// =============== MIXINS =======================================
+// Floating
+.FloatLeft {
+  float: left;
+}
+
+.FloatRight {
+  float: right;
+}
+
+.FloatNone {
+  float: none;
+}
+
+// Inline blocks
+.Inline {
+  display: -moz-inline-stack;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+// Centered element
+.Center {
+  margin: 0 auto;
+}
+
+// Positioning element
+.Absolute {
+  position: absolute;
+}
+
+.Fixed {
+  position: fixed;
+}
+
+.Relative {
+  position: relative;
+}
+
+.Static {
+  position: static;
+}
+
+// Cleaning indentation
+.NoMargin {
+  margin: 0;
+}
+
+.NoPadding {
+  padding: 0;
+}
+
+.NoIndent {
+  .NoMargin;
+  .NoPadding;
+}
+
+// Horizontal alignment
+.TextLeft {
+  text-align: left;
+}
+
+.TextCenter {
+  text-align: center;
+}
+
+.TextRight {
+  text-align: right;
+}
+
+// Vertical alignment
+.VerticalTop {
+  vertical-align: top;
+}
+
+.VerticalMiddle {
+  vertical-align: middle;
+}
+
+.VerticalBottom {
+  vertical-align: bottom;
+}
+
+.VerticalBaseline {
+  vertical-align: baseline;
+}
+
+// Font weight and style
+.Bold {
+  font-weight: 700;
+}
+
+.NoBold {
+  font-weight: 400;
+}
+
+.Italic {
+  font-style: italic;
+}
+
+.Oblique {
+  font-style: oblique;
+}
+
+.NoItalic {
+  font-style: normal;
+}
+
+.BoldItalic {
+  .Bold;
+  .Italic;
+}
+
+.Normal {
+  .NoBold;
+  .NoItalic;
+}
+
+// Clear borders and backgrounds
+.NoBorder {
+  border: none;
+}
+
+.NoOutline {
+  outline: none;
+}
+
+.NoBackground {
+  background: none;
+}
+
+.BackTransparent {
+  background: transparent;
+}
+
+// Cursor type
+.CursorHand {
+  cursor: pointer;
+}
+
+.CursorAuto {
+  cursor: auto;
+}
+
+// Element show or visibility
+.Hide {
+  display: none;
+}
+
+.Show {
+  display: block;
+}
+
+.Block {
+  display: block;
+}
+
+.Visible {
+  visibility: visible;
+}
+
+.Invisible {
+  visibility: hidden;
+}
+
+// Image adapts to the width of the block
+.ImgAutoWidth {
+  height: auto;
+  max-width: 100%;
+  width: auto \9; // ie8
+}
+
+// Background image adapts to the width of the screen
+.BackgroundAutoWidth {
+  background-size: 100% auto;
+}
+
+// Abolition shadow of the block
+.NoBoxShadow {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+// Clearfix
+.Clr {
+  .setSizes(0, 0);
+  clear: both;
+}
+
+// =============== /MIXINS ======================================
+
+// =============== PARAMETRIC MIXINS ============================
+// Set absolute positioning with indication the top and left indent
+.setAbsolute(@top: 0, @left: 0) {
+  .Absolute;
+  top: @top;
+  left: @left;
+}
+
+// Set main font directly with the size, weight and line height (once in a PX and REM)
+.setFontMain(@size: 1, @weight: 400, @line: @size) {
+  font-family: @fontMain;
+  font-weight: @weight;
+  .setFontSizeAndLineHeight(@size, @line);
+}
+
+// Set condensed font directly with the size, weight and line height (once in a PX and REM)
+.setFontCondensed(@size: 1, @weight: 400, @line: @size) {
+  font-family: @fontCondensed;
+  font-weight: @weight;
+  .setFontSizeAndLineHeight(@size, @line);
+}
+
+// Set font size and line height directly in PX and REM
+.setFontSizeAndLineHeight(@size: 1, @line: @size) {
+  .setFontSize(@size);
+  .setLineHeight(round(@line * 1.15, @line));
+}
+
+// Set font size directly in PX and REM
+.setFontSize(@size: 1) {
+  .setFontSizePX(@size);
+  .setFontSizeREM(@size);
+}
+
+// Set line height directly in PX and REM
+.setLineHeight(@size: 1) {
+  .setLineHeightPX(@size);
+  .setLineHeightREM(@size);
+}
+
+// Set font size in PX
+.setFontSizePX(@size) {
+  font-size: unit((@size * 10), px); //fallback for old browsers
+}
+
+// Set font size in REM
+.setFontSizeREM(@size) {
+  font-size: unit(@size, rem);
+}
+
+// Set line height in PX
+.setLineHeightPX(@size) {
+  line-height: unit((@size * 10), px); //fallback for old browsers
+}
+
+// Set line height in REM
+.setLineHeightREM(@size) {
+  line-height: unit(@size, rem);
+}
+
+// Animate element
+// Mandatory requirement - the presence of specific values. Properties with a value of "auto" not animated.
+.setAnimation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+  -webkit-animation: @arguments;
+  -moz-animation: @arguments;
+  -o-animation: @arguments;
+  animation: @arguments;
+}
+
+// It determines how the background color or background image to be displayed at the borders.
+// The effect is visible in the transparent or dotted borders.
+.setBackgroundClip(@arg: padding-box) {
+  -webkit-background-clip: @arg;
+  -moz-background-clip: @arg;
+  background-clip: @arg;
+}
+
+// Background image of the element
+.setBackgroundUrl(@pic, @x: left, @y: top, @repeat: no-repeat) {
+  background: url('@{imgUrl}@{pic}') @repeat @x @y;
+}
+
+// Fixed background image the full width of the element
+.setBackgroundUrlFixed(@pic, @x: center, @y: center, @size: cover, @repeat: no-repeat) {
+  background: url('@{imgUrl}@{pic}') @repeat @x @y fixed;
+  -webkit-background-size: @size;
+  -moz-background-size: @size;
+  -o-background-size: @size;
+  background-size: @size;
+}
+
+// Set borders and background for element
+.setBorderAndBack(@border: black, @size: 1px, @back: white, @line: solid) {
+  border: @size @line @border;
+  background-color: @back;
+}
+
+// Set all borders
+.setBorder(@color: black, @size: 1px, @type: solid) {
+  border: @size @type @color;
+}
+
+// Set borders separately
+.setBorderLines(@valueTop: none, @valueRight: @valueTop, @valueBottom: @valueTop, @valueLeft: @valueRight) {
+  border-top: @valueTop;
+  border-right: @valueRight;
+  border-bottom: @valueBottom;
+  border-left: @valueLeft;
+}
+
+// Set borders colors separately
+.setBorderLinesColor(@colorTop: black, @colorRight: @colorTop, @colorBottom: @colorTop, @colorLeft: @colorRight) {
+  border-top-color: @colorTop;
+  border-right-color: @colorRight;
+  border-bottom-color: @colorBottom;
+  border-left-color: @colorLeft;
+}
+
+// Set borders width separately
+.setBorderLinesSize(@sizeTop: black, @sizeRight: @sizeTop, @sizeBottom: @sizeTop, @sizeLeft: @sizeRight) {
+  border-top-width: @sizeTop;
+  border-right-width: @sizeRight;
+  border-bottom-width: @sizeBottom;
+  border-left-width: @sizeLeft;
+}
+
+// Rounded border separately
+.setBorderRadius(@topLeft: 0, @topRight: @topLeft, @bottomRight: @topRight, @bottomLeft: @bottomRight) {
+  -webkit-border-radius: @arguments;
+  -moz-border-radius: @arguments;
+  border-radius: @arguments;
+}
+
+// Rounded border
+.setBorderRadiusAll(@radius: 0) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+// Outer shadow of element
+.setBoxShadow(@x: 0, @y: 0, @blur: 5px, @pull: 0, @color: grey) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+// Inner shadow of element
+.setBoxShadowInset(@x: 0, @y: 0, @blur: 5px, @pull: 0, @color: grey) {
+  -webkit-box-shadow: inset @arguments;
+  -moz-box-shadow: inset @arguments;
+  box-shadow: inset @arguments;
+}
+
+// Changing the algorithm for calculating the width and height of the element
+.setBoxSizing(@arg: border-box) {
+  -webkit-box-sizing: @arg;
+  -moz-box-sizing: @arg;
+  box-sizing: @arg;
+}
+
+// Centering element relative to the parent
+.setCenter(@indent: 0, @indent2: @indent) {
+  margin: @indent auto @indent2 auto;
+}
+
+// Multiple column text
+.setColumns(@width: 250px, @count: 0, @gap: 50px, @ruleColor: lightgrey, @ruleStyle: solid, @ruleWidth: 1px) {
+  -webkit-column-width: @width;
+  -webkit-column-count: @count;
+  -webkit-column-gap: @gap;
+  -webkit-column-rule-color: @ruleColor;
+  -webkit-column-rule-style: @ruleStyle;
+  -webkit-column-rule-width: @ruleWidth;
+  -moz-column-width: @width;
+  -moz-column-count: @count;
+  -moz-column-gap: @gap;
+  -moz-column-rule-color: @ruleColor;
+  -moz-column-rule-style: @ruleStyle;
+  -moz-column-rule-width: @ruleWidth;
+  column-width: @width;
+  column-count: @count;
+  column-gap: @gap;
+  column-rule-color: @ruleColor;
+  column-rule-style: @ruleStyle;
+  column-rule-width: @ruleWidth;
+}
+
+// Two color border
+.setDoubleBorders(@colorOne: green, @colorTwo: red) {
+  .setBorder(@colorOne, 1px, solid);
+  .setBoxShadow(0, 0, 0, 1px, @colorTwo);
+}
+
+// Set flex-container
+// direction: row || row-reverse || column || column-reverse
+// wrap: nowrap || wrap || wrap-reverse
+// justify: flex-start || flex-end || center || space-between || space-around
+// alignItems: flex-start || flex-end || center || baseline || stretch
+// alignContent: stretch || flex-start || flex-end || center || space-between || space-around
+.setFlexContainer(@direction: row, @wrap: wrap, @justify: center, @alignItems: flex-start, @alignContent: flex-start) {
+  .setFlex();
+  .setFlexDirection(@direction);
+  .setFlexWrap(@wrap);
+  .setFlexJustify(@justify);
+  .setFlexAlignItems(@alignItems);
+  .setFlexAlignContent(@alignContent);
+}
+
+// Set flex-container without parameters
+.setFlex() {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+}
+
+// Setting alignment flex-lines
+// alignContent: stretch || flex-start || flex-end || center || space-between || space-around
+.setFlexAlignContent(@align: flex-start) {
+  -webkit-align-content: @align;
+  -moz-align-content: @align;
+  align-content: @align;
+}
+
+// Setting alignment flex-points respect to the perpendicular axis
+// alignItems: flex-start || flex-end || center || baseline || stretch
+.setFlexAlignItems(@align: flex-start) {
+  -webkit-align-items: @align;
+  -moz-align-items: @align;
+  align-items: @align;
+}
+
+// Change axes flex-container
+// direction: row || row-reverse || column || column-reverse
+.setFlexDirection(@direction: row) {
+  -webkit-flex-direction: @direction;
+  -moz-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+// Set flex-element
+// align-self: auto || stretch || flex-start || flex-end || center || baseline
+.setFlexItem (@order, @flex: 1, @alignSelf: auto) {
+  .setFlexItemOrder(@order);
+  .setFlexItemFlex(@flex);
+  .setFlexItemAlignSelf(@alignSelf);
+}
+
+// Overlapping property align-items for flex-container
+// align-self: auto || stretch || flex-start || flex-end || center || baseline
+.setFlexItemAlignSelf(@value: auto) {
+  -webkit-align-self: @value;
+  -moz-align-self: @value;
+  align-self: @value;
+}
+
+// Setting how the flex-points will use the free space on the main axis
+.setFlexItemFlex(@int: 1) {
+  -webkit-flex: @int;
+  -moz-flex: @int;
+  flex: @int;
+}
+
+// Setting the order of flex-elements
+.setFlexItemOrder(@int) {
+  -webkit-order: @int;
+  -moz-order: @int;
+  order: @int;
+}
+
+// Set location flex-points along the main axis
+// justify: flex-start || flex-end || center || space-between || space-around
+.setFlexJustify(@justify: center) {
+  -webkit-justify-content: @justify;
+  -moz-justify-content: @justify;
+  justify-content: @justify;
+}
+
+// Transfer rules flex-points inside flex-container
+// wrap: nowrap || wrap || wrap-reverse
+.setFlexWrap(@wrap: wrap) {
+  -webkit-flex-wrap: @wrap;
+  -moz-flex-wrap: @wrap;
+  flex-wrap: @wrap;
+
+}
+
+// Vertical gradient (2 colors)
+.setGradientVertical(@start: lightgrey, @end: grey) {
+  background-color: @start;
+  background-image: -moz-linear-gradient(top, @start 0%, @end 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @start), color-stop(100%, @end));
+  background-image: -webkit-linear-gradient(top, @start 0%, @end 100%);
+  background-image: -o-linear-gradient(top, @start 0%, @end 100%);
+  background-image: -ms-linear-gradient(top, @start 0%, @end 100%);
+  background-image: linear-gradient(to bottom, @start 0%, @end 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{end}', GradientType=0);
+}
+
+// Horizontal gradient (2 colors)
+.setGradientHorisontal(@start: lightgrey, @end: grey) {
+  background-color: @start;
+  background-image: -moz-linear-gradient(left, @start 0%, @end 100%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @start), color-stop(100%, @end));
+  background-image: -webkit-linear-gradient(left, @start 0%, @end 100%);
+  background-image: -o-linear-gradient(left, @start 0%, @end 100%);
+  background-image: -ms-linear-gradient(left, @start 0%, @end 100%);
+  background-image: linear-gradient(to right, @start 0%, @end 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{end}', GradientType=1);
+}
+
+// Set inline block
+.setInline(@align: top) {
+  .Inline;
+  vertical-align: @align;
+}
+
+// Setting an element as a inline block, and a float
+.setInlineFloat(@align: top, @float: left) {
+  .setInline(@align);
+  float: @float;
+}
+
+// Color and decoration for link and his pseudo
+.setLinks(@link: blue, @linkDecor: underline,
+       @hover: darken(@link, 10%), @hoverDecor: none,
+       @focus: lighten(@link, 10%), @focusDecor: @linkDecor) {
+  .setLinkStyle(@link, @linkDecor);
+  // order of rules is important for links
+  &:link, &:visited {
+    .setLinkStyle(@link, @linkDecor);
+  }
+  &:hover {
+    .setLinkStyle(@hover, @hoverDecor);
+  }
+  &:focus, &:active {
+    .setLinkStyle(@focus, @focusDecor);
+  }
+}
+
+// Link color and decoration
+.setLinkStyle(@color: blue, @decoration: underline) {
+  color: @color;
+  text-decoration: @decoration;
+}
+
+// Margin
+.setMargin(@size1: 0, @size2: @size1, @size3: @size1, @size4: @size2) {
+  margin: @arguments;
+}
+
+// Opacity
+.setOpacity (@val: 1) {
+  @forMS: @val * 100;
+  -webkit-opacity: @val;
+  -moz-opacity: @val;
+  opacity: @val;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{forMS})";
+  filter: ~"alpha(opacity=@{forMS})";
+  zoom: 1;
+}
+
+// Outline
+.setOutline(@color: blue, @size: 1px, @type: solid) {
+  outline: @size @type @color;
+}
+
+// Padding
+.setPadding(@size1: 0, @size2: @size1, @size3: @size1, @size4: @size2) {
+  padding: @arguments;
+}
+
+// How many pixels 3D element is removed from the point of view.
+// This feature allows you to change the perspective from which to view 3D elements.
+// If the determination of the properties of perspective for the item receive is a perspective view of the child elements, and not the item itself.
+// Property perspective affects only the 3D elements are transformed.
+.setPerspective (@value: 1000) {
+  -webkit-perspective: @value;
+  -moz-perspective: @value;
+  perspective: @value;
+}
+
+// Placeholder color
+.setPlaceholderStyle(@color: lightgrey) {
+  &::-webkit-input-placeholder {
+    color: @color;
+    text-overflow: ellipsis;
+  }
+  &::-moz-placeholder {
+    color: @color;
+    text-overflow: ellipsis;
+  }
+  &:-moz-placeholder {
+    color: @color;
+    text-overflow: ellipsis;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+    text-overflow: ellipsis;
+  }
+}
+
+// Transparent placeholder in the focus to the element
+.setPlaceholderHide(@duration: 0.5s, @ease: ease) {
+  &::-webkit-input-placeholder {
+    opacity: 1;
+    .setTransition(opacity, @duration, @ease);
+  }
+  &::-moz-placeholder {
+    opacity: 1;
+    .setTransition(opacity, @duration, @ease);
+  }
+  &:-moz-placeholder {
+    opacity: 1;
+    .setTransition(opacity, @duration, @ease);
+  }
+  &:-ms-input-placeholder {
+    opacity: 1;
+    .setTransition(opacity, @duration, @ease);
+  }
+  &:focus::-webkit-input-placeholder {
+    opacity: 0;
+    .setTransition(opacity, @duration, @ease);
+  }
+  &:focus::-moz-placeholder {
+    opacity: 0;
+    .setTransition(opacity, @duration, @ease);
+  }
+  &:focus:-moz-placeholder {
+    opacity: 0;
+    .setTransition(opacity, @duration, @ease);
+  }
+  &:focus:-ms-input-placeholder {
+    opacity: 0;
+    .setTransition(opacity, @duration, @ease);
+  }
+}
+
+// Shift placeholder right in the focus to the element
+.setPlaceholderSlideRight(@indent: 500px, @duration: 0.5s, @ease: ease) {
+  &::-webkit-input-placeholder {
+    text-indent: 0;
+    .setTransition(text-indent, @duration, @ease);
+  }
+  &::-moz-placeholder {
+    text-indent: 0;
+    .setTransition(text-indent, @duration, @ease);
+  }
+  &:-moz-placeholder {
+    text-indent: 0;
+    .setTransition(text-indent, @duration, @ease);
+  }
+  &:-ms-input-placeholder {
+    text-indent: 0;
+    .setTransition(text-indent, @duration, @ease);
+  }
+  &:focus::-webkit-input-placeholder {
+    text-indent: @indent;
+    .setTransition(text-indent, @duration, @ease);
+  }
+  &:focus::-moz-placeholder {
+    text-indent: @indent;
+    .setTransition(text-indent, @duration, @ease);
+  }
+  &:focus:-moz-placeholder {
+    text-indent: @indent;
+    .setTransition(text-indent, @duration, @ease);
+  }
+  &:focus:-ms-input-placeholder {
+    text-indent: @indent;
+    .setTransition(text-indent, @duration, @ease);
+  }
+}
+
+// Shift placeholder down in the focus to the element
+.setPlaceholderSlideDown(@lineHeightStart: 20px, @lineHeightFinish: 100px, @duration: 0.5s, @ease: ease) {
+  &::-webkit-input-placeholder {
+    line-height: @lineHeightStart;
+    text-overflow: ellipsis;
+    .setTransition(line-height, @duration, @ease);
+  }
+  &::-moz-placeholder {
+    line-height: @lineHeightStart;
+    text-overflow: ellipsis;
+    .setTransition(line-height, @duration, @ease);
+  }
+  &:-moz-placeholder {
+    line-height: @lineHeightStart;
+    text-overflow: ellipsis;
+    .setTransition(line-height, @duration, @ease);
+  }
+  &:-ms-input-placeholder {
+    line-height: @lineHeightStart;
+    text-overflow: ellipsis;
+    .setTransition(line-height, @duration, @ease);
+  }
+  &:focus::-webkit-input-placeholder {
+    line-height: @lineHeightFinish;
+    text-overflow: ellipsis;
+    .setTransition(line-height, @duration, @ease);
+  }
+  &:focus::-moz-placeholder {
+    line-height: @lineHeightFinish;
+    text-overflow: ellipsis;
+    .setTransition(line-height, @duration, @ease);
+  }
+  &:focus:-moz-placeholder {
+    line-height: @lineHeightFinish;
+    text-overflow: ellipsis;
+    .setTransition(line-height, @duration, @ease);
+  }
+  &:focus:-ms-input-placeholder {
+    line-height: @lineHeightFinish;
+    text-overflow: ellipsis;
+    .setTransition(line-height, @duration, @ease);
+  }
+}
+
+// Rotating element at a predetermined angle relative to the point of transformation, set properties transform-origin
+.setRotate(@deg) {
+  .setTransform(rotate(@deg));
+}
+
+// Scale element
+.setScale(@scale) {
+  .setTransform(scale(@scale));
+}
+
+// Set element width and height
+.setSizes(@width: auto, @height: auto) {
+  width: @width;
+  height: @height;
+}
+
+// Set max element width and height
+.setSizesMax(@width: none, @height: none) {
+  max-width: @width;
+  max-height: @height;
+}
+
+// Set min element width and height
+.setSizesMin(@width: none, @height: none) {
+  min-width: @width;
+  min-height: @height;
+}
+
+// Set max and min element width and height
+.setSizesMinMax(@widthMin: none, @heightMin: none, @widthMax: none, @heightMax: none) {
+  .setSizesMin(@widthMin, @heightMin);
+  .setSizesMax(@widthMax, @heightMax);
+}
+
+// Element skew at a predetermined angle with the vertical
+.setSkew(@deg) {
+  .setTransform(skew(@deg));
+}
+
+// Set the possibility of changing the size of the textarea
+.setTextareaResize(@value: none) {
+  -webkit-resize: @value;
+  -moz-resize: @value;
+  resize: @value;
+}
+
+// Set behavior of text when leaving for this item
+// value: clip || ellipsis || string || initial || inherit
+.setTextOverflow(@value: ellipsis) {
+  -ms-text-overflow: @value;
+  -o-text-overflow: @value;
+  text-overflow: @value;
+}
+
+// Text shadow
+.setTextShadow (@x: 0, @y: 0, @blur: 5px, @color: grey) {
+  text-shadow: @arguments;
+}
+
+// Transform element
+.setTransform(@params) {
+  -webkit-transform: @params;
+  -moz-transform: @params;
+  -ms-transform: @params;
+  -o-transform: @params;
+  transform: @params;
+}
+
+// Set coordinates of the point relative to which the transformation will be an element
+.setTransformOrigin (@x: center, @y: center) {
+  -webkit-transform-origin: @arguments;
+  -moz-transform-origin: @arguments;
+  -ms-transform-origin: @arguments;
+  -o-transform-origin: @arguments;
+  transform-origin: @arguments;
+}
+
+// Set a transition effect between the two states element
+.setTransition(@what: all, @length: 0.2s, @easing: ease-in-out) {
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -ms-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+// The shift element to a specified value horizontally and vertically
+.setTranslate(@x: 0, @y: 0) {
+  .setTransform(translate(@x, @y));
+}
+
+// Three color border
+.setTripleBorders(@colorOne: green, @colorTwo: red, @colorThree: blue) {
+  .setBorder(@colorOne, 1px, solid);
+  -webkit-box-shadow: 0 0 0 1px @colorTwo, 0 0 0 2px @colorThree;
+  -moz-box-shadow: 0 0 0 1px @colorTwo, 0 0 0 2px @colorThree;
+  box-shadow: 0 0 0 1px @colorTwo, 0 0 0 2px @colorThree;
+}
+
+// User select content
+.setUserSelect(@value: none) {
+  -webkit-user-select: @value;
+  -moz-user-select: @value;
+  -ms-user-select: @value;
+  user-select: @value;
+}
+
+// =============== /PARAMETRIC MIXINS ===========================
+
+// =============== READY-MADE SHAPES ============================
+// Square or Rectangle
+.shapeSquareOrRectangle(@back: lightgrey, @width: 100px, @height: @width) {
+  .setSizes(@width, @height);
+  background: @back;
+}
+
+.shapeSquareOrRectangleBordered(@back: lightgrey, @border: 1px solid black, @width: 100px, @height: @width) {
+  .shapeSquareOrRectangle(@back, @width, @height);
+  .setBorderLines(@border);
+  .setBoxSizing();
+}
+
+// Circle
+.shapeCircle(@back: lightgrey, @size: 100px) {
+  @isRadius: round(@size / 2);
+  .setSizes(@size, @size);
+  .setBorderRadiusAll(@isRadius);
+  background: @back;
+}
+
+.shapeCircleBordered(@back: lightgrey, @border: 1px solid black, @size: 100px) {
+  .shapeCircle(@back, @size);
+  .setBorderLines(@border);
+  .setBoxSizing();
+}
+
+// Oval
+.shapeOval(@back: lightgrey, @width: 200px, @height: 100px) {
+  @radius: e(%("%a / %d", round(@width / 2), round(@height / 2)));
+  .setSizes(@width, @height);
+  .setBorderRadiusAll(@radius);
+  background: @back;
+}
+
+.shapeOvalBordered(@back: lightgrey, @border: 1px solid black, @width: 200px, @height: 100px) {
+  .shapeOval(@back, @width, @height);
+  .setBorderLines(@border);
+  .setBoxSizing();
+}
+
+// Triangle
+// switch: up || down || left || right || topleft || topright || bottomleft || bottomright
+.shapeTriangle(@switch: up, @color: lightgrey, @size: 100px) {
+  .setSizes(0, 0);
+  .shapeTriangleDirection(@switch);
+}
+
+// Triangle direction up
+.shapeTriangleDirection(up) {
+  @halfSize: round(@size / 2);
+  .setBorderLines(none, @halfSize solid transparent, @size solid @color);
+}
+
+// Triangle direction down
+.shapeTriangleDirection(down) {
+  @halfSize: round(@size / 2);
+  .setBorderLines(@size solid @color, @halfSize solid transparent, none);
+}
+
+// Triangle direction left
+.shapeTriangleDirection(left) {
+  @halfSize: round(@size / 2);
+  .setBorderLines(@halfSize solid transparent, @size solid @color, @halfSize solid transparent, none);
+}
+
+// Triangle direction right
+.shapeTriangleDirection(right) {
+  @halfSize: round(@size / 2);
+  .setBorderLines(@halfSize solid transparent, none, @halfSize solid transparent, @size solid @color);
+}
+
+// Triangle direction topleft
+.shapeTriangleDirection(topleft) {
+  .setBorderLines(@size solid @color, @size solid transparent, none, none);
+}
+
+// Triangle direction topright
+.shapeTriangleDirection(topright) {
+  .setBorderLines(@size solid @color, none, none, @size solid transparent);
+}
+
+// Triangle direction bottomleft
+.shapeTriangleDirection(bottomleft) {
+  .setBorderLines(none, @size solid transparent, @size solid @color, none);
+}
+
+// Triangle direction bottomright
+.shapeTriangleDirection(bottomright) {
+  .setBorderLines(none, none, @size solid @color, @size solid transparent);
+}
+
+// Curved Tail Arrow
+.shapeCurvedArrow(@color: lightgrey, @arrowSize: 12px) {
+  @borderSize: round(@arrowSize * 0.75);
+  .Relative;
+  .setSizes(0, 0);
+  .setBorderLines(@borderSize solid transparent, @borderSize solid @color, none, none);
+  .setRotate(10deg);
+  &:after {
+    .setAbsolute((0 - @arrowSize), (0 - @borderSize));
+    .setBorderLines(round(@arrowSize * 0.25) solid @color, 0 solid transparent, 0 solid transparent);
+    .setSizes(@arrowSize, @arrowSize);
+    .setRotate(45deg);
+    .setBorderRadius(round(@arrowSize * 1.67), 0, 0, 0);
+    content: "";
+  }
+}
+
+// Trapezoid
+.shapeTrapezoid(@color: lightgrey, @width: 100px) {
+  .setSizes(@width, 0);
+  .setBorderLines(none, round(@width / 2) solid transparent, @width solid @color);
+}
+
+// Parallelogram
+.shapeParallelogram(@color: lightgrey, @width: 150px, @height: 100px, @skew: 20deg) {
+  .setSizes(@width, @height);
+  .setSkew(@skew);
+  background: @color;
+}
+
+// Star (6-points)
+.shapeStarSixPoints(@color: lightgrey, @size: 100px) {
+  @halfSize: round(@size / 2);
+  .Relative;
+  .setSizes(0, 0);
+  .setBorderLines(none, @halfSize solid transparent, @size solid @color);
+  &:after {
+    .setAbsolute(round(@size / 2.9), (0 - @halfSize));
+    .setSizes(0, 0);
+    .setBorderLines(@size solid @color, @halfSize solid transparent, none);
+    content: "";
+  }
+}
+
+// Star (5-points)
+.shapeStarFivePoints(@color: lightgrey, @size: 100px) {
+  .Relative;
+  .Block;
+  .setRotate(35deg);
+  .setSizes(0, 0);
+  .setMargin(round(@size / 2), 0);
+  .setBorderLines(none, @size solid transparent, round(@size * 0.7) solid @color);
+  color: @color;
+  &:before {
+    .Block;
+    .setAbsolute((0 - round(@size * 0.45)), (0 - round(@size * 0.65)));
+    .setRotate(-35deg);
+    .setSizes(0, 0);
+    .setBorderLines(none, round(@size * 0.3) solid transparent, round(@size * 0.8) solid @color);
+    content: '';
+  }
+  &:after {
+    .Block;
+    .setAbsolute(round(@size * 0.3), (0 - round(@size * 1.05)));
+    .setRotate(-70deg);
+    .setSizes(0, 0);
+    .setBorderLines(none, @size solid transparent, round(@size * 0.7) solid @color);
+    content: '';
+    color: @color;
+  }
+}
+
+// Pentagon
+.shapePentagon(@color: lightgrey, @size: 100px) {
+  .Relative;
+  .setSizes(@size);
+  .setBorderLines(round(@size * 0.9) solid @color, round(@size * 0.3) solid transparent, 0 solid transparent);
+  &:before {
+    .setAbsolute((0 - round(@size * 1.54)), (0 - round(@size * 0.295)));
+    .setSizes(0, 0);
+    .setBorderLines(0 solid transparent, round(@size * 0.8) solid transparent, round(@size * 0.64) solid @color);
+    content: "";
+  }
+}
+
+// Hexagon
+.shapeHexagon(@color: lightgrey, @size: 100px) {
+  @persent25: round(@size * 0.25);
+  @persent50: round(@size * 0.5);
+  .Relative;
+  .setSizes(@size, round(@size * 0.55));
+  background: @color;
+  &:before {
+    .setAbsolute((0 - @persent25));
+    .setSizes(0, 0);
+    .setBorderLines(none, @persent50 solid transparent, @persent25 solid @color);
+    content: "";
+  }
+  &:after {
+    .Absolute;
+    .setSizes(0, 0);
+    .setBorderLines(@persent25 solid @color, @persent50 solid transparent, none);
+    content: "";
+    left: 0;
+    bottom: 0 - @persent25;
+  }
+}
+
+// Octagon
+.shapeOctagon(@color: lightgrey, @back: white, @size: 100px) {
+  @persent29: round(@size * 0.29);
+  @persent42: round(@size * 0.42);
+  .Relative;
+  .setSizes(@size, @size);
+  background: @color;
+  &:before {
+    .setAbsolute();
+    .setSizes(@persent42, 0);
+    .setBorderLines(none, @persent29 solid @back, @persent29 solid @color);
+    content: "";
+  }
+  &:after {
+    .Absolute;
+    .setSizes(@persent42, 0);
+    .setBorderLines(@persent29 solid @color, @persent29 solid @back, none);
+    content: "";
+    bottom: 0;
+    left: 0;
+  }
+}
+
+// Heart
+.shapeHeart(@color: lightgrey, @size: 100px) {
+  @halfSize: round(@size / 2);
+  .Relative;
+  .setSizes(@size, round(@size * 0.9));
+  &:before, &:after {
+    .setAbsolute(0, @halfSize);
+    .setRotate(-45deg);
+    .setSizes(@halfSize, round(@size * 0.8));
+    .setBorderRadius(@halfSize, @halfSize, 0, 0);
+    .setTransformOrigin(0, 100%);
+    content: "";
+    background: @color;
+  }
+  &:after {
+    left: 0;
+    .setRotate(45deg);
+    .setTransformOrigin(100%, 100%);
+  }
+}
+
+// Infinity
+.shapeInfinity(@color: lightgrey, @size: 100px) {
+  @halfSize: round(@size / 2);
+  .Relative;
+  .setSizes(round(@size * 2.12), @size);
+  &:before,
+  &:after {
+    .setAbsolute();
+    .setBorderRadius(@halfSize, @halfSize, 0, @halfSize);
+    .setRotate(-45deg);
+    .setSizes(round(@size * 0.6), round(@size * 0.6));
+    .setBorder(@color, round(@size * 0.2));
+    content: "";
+  }
+  &:after {
+    .setBorderRadius(@halfSize, @halfSize, @halfSize, 0);
+    .setRotate(45deg);
+    left: auto;
+    right: 0;
+  }
+}
+
+// Diamond Square
+.shapeDiamond(@color: lightgrey, @size: 100px) {
+  .Relative;
+  .setSizes(0, 0);
+  .setBorder(transparent, @size);
+  border-bottom-color: @color;
+  top: 0 - @size;
+  &:after {
+    .setAbsolute(@size, (0 - @size));
+    .setSizes(0, 0);
+    .setBorder(transparent, @size);
+    content: '';
+    border-top-color: lightgrey;
+  }
+}
+
+// Diamond Shield
+.shapeDiamondShield(@color: lightgrey, @size: 100px) {
+  .Relative;
+  .setSizes(0, 0);
+  .setBorder(transparent, @size);
+  border-bottom: round(@size * 0.4) solid @color;
+  top: 0 - @size;
+  &:after {
+    .setAbsolute(round(@size * 0.4), (0 - @size));
+    .setSizes(0, 0);
+    .setBorder(transparent, @size);
+    content: '';
+    border-top: round(@size * 1.4) solid @color;
+  }
+}
+
+// Diamond Narrow
+.shapeDiamondNarrow(@color: lightgrey, @size: 100px) {
+  @persent140: round(@size * 1.4);
+  .Relative;
+  .setSizes(0, 0);
+  .setBorder(transparent, @size);
+  border-bottom: @persent140 solid @color;
+  top: 0 - @size;
+  &:after {
+    .setAbsolute(@persent140, (0 - @size));
+    .setSizes(0, 0);
+    .setBorder(transparent, @size);
+    content: '';
+    border-top: @persent140 solid @color;
+  }
+}
+
+// Cut Diamond
+.shapeDiamondCut(@color: lightgrey, @size: 100px) {
+  @halfSize: round(@size / 2);
+  .Relative;
+  .setSizes(@size, 0);
+  .setBorderLines(0 solid transparent, @halfSize solid transparent, @halfSize solid @color, @halfSize solid transparent);
+  .setMargin(round(@size * 0.4), 0, @size);
+  &:after {
+    .setAbsolute(@halfSize, (0 - @halfSize));
+    .setSizes(0, 0);
+    .setBorderLines(round(@size * 1.4) solid @color, @size solid transparent, 0 solid transparent, @size solid transparent);
+    content: "";
+  }
+}
+
+// Egg
+.shapeEgg(@color: lightgrey, @size: 100px) {
+  .Block;
+  .setSizes(@size, round(@size * 1.43));
+  .setBorderRadiusAll(e('50% 50% 50% 50% / 60% 60% 40% 40%'));
+  background-color: @color;
+}
+
+// Pac-Man
+.shapePacman(@color: lightgrey, @size: 100px) {
+  .setSizes(0, 0);
+  .setBorder(@color, @size);
+  .setBorderRadius(@size);
+  border-right: @size solid transparent;
+}
+
+// Talk Bubble
+.shapeTalkbubble(@color: lightgrey, @width: 100px, @height: (@width / 1.5)) {
+  @persent8: round(@height * 0.08);
+  @persent11: round(@height * 0.11);
+  @persent21: round(@height * 0.21);
+  .Relative;
+  .setSizes(@width, @height);
+  .setBorderRadius(@persent8);
+  background: @color;
+  &:before {
+    .Absolute;
+    .setSizes(0, 0);
+    .setBorderLines(@persent11 solid transparent, @persent21 solid @color, @persent11 solid transparent, none);
+    content: "";
+    right: 100%;
+    top: (round(@height / 2) - @persent11);
+  }
+}
+
+// 12 Point Burst
+.shapeBurst12(@color: lightgrey, @size: 100px) {
+  .Relative;
+  .TextCenter;
+  .setSizes(@size, @size);
+  background: @color;
+  &:before, &:after {
+    .setAbsolute(0, 0);
+    .setSizes(@size, @size);
+    content: "";
+    background: @color;
+  }
+  &:before {
+    .setRotate(30deg);
+  }
+  &:after {
+    .setRotate(60deg);
+  }
+}
+
+// 8 Point Burst
+.shapeBurst8(@color: lightgrey, @size: 100px) {
+  .Relative;
+  .TextCenter;
+  .setSizes(@size, @size);
+  .setRotate(20deg);
+  background: @color;
+  &:before {
+    .setAbsolute(0, 0);
+    .setSizes(@size, @size);
+    .setRotate(135deg);
+    content: "";
+    background: @color;
+  }
+}
+
+// Yin Yang
+.shapeYinYang(@color: lightgrey, @back: white, @size: 100px) {
+  @persent2: round(@size * 0.021);
+  @persent12: round(@size * 0.125);
+  @persent18: round(@size * 0.1875);
+  .Relative;
+  .setBorderRadius(100%);
+  .setSizes(@size, (@size / 2));
+  .setBorderLines(@persent2 solid @color, @persent2 solid @color, round(@size / 2) solid @color, @persent2 solid @color);
+  background: @back;
+  &:before {
+    .setAbsolute(50%, 0);
+    .setBorder(@color, @persent18);
+    .setBorderRadius(100%);
+    .setSizes(@persent12, @persent12);
+    content: "";
+    background: @back;
+  }
+  &:after {
+    .setAbsolute(50%, 50%);
+    .setBorder(@back, @persent18);
+    .setBorderRadius(100%);
+    .setSizes(@persent12, @persent12);
+    content: "";
+    background: @color;
+  }
+}
+
+// Badge Ribbon
+.shapeBadgeRibbon(@color: lightgrey, @size: 100px) {
+  @persent10: round(@size * 0.1);
+  @persent40: round(@size * 0.4);
+  @persent70: round(@size * 0.7);
+  .Relative;
+  .setSizes(@size, @size);
+  .setBorderRadius(round(@size / 2));
+  background: @color;
+  &:before,
+  &:after {
+    .setAbsolute(@persent70, (0 - @persent10));
+    .setBorderLines(none, @persent40 solid transparent, @persent70 solid @color);
+    .setRotate(-140deg);
+    content: '';
+  }
+  &:after {
+    .setRotate(140deg);
+    left: auto;
+    right: (0 - @persent10);
+  }
+}
+
+// TV Screen
+.shapeTVScreen(@color: lightgrey, @text: white, @size: 100px) {
+  .Relative;
+  .TextCenter;
+  .setSizes(@size, round(@size * 0.75));
+  .setMargin(round(@size * 0.1), 0);
+  .setBorderRadiusAll(e('50% / 10%'));
+  background: @color;
+  color: @text;
+  &:before {
+    .setAbsolute(10%, -5%);
+    .setBorderRadiusAll(e('5% / 50%'));
+    content: '';
+    bottom: 10%;
+    right: -5%;
+    background: inherit;
+  }
+}
+
+// Chevron
+.shapeChevron(@color: lightgrey, @width: 100px, @height: round(@width * 0.30)) {
+  .Relative;
+  .TextCenter;
+  .setSizes(@width, @height);
+  .setPadding(round(@width * 0.06));
+  .setBoxSizing();
+  margin-bottom: round(@width * 0.03);
+  &:before {
+    .setAbsolute(0, 0);
+    .setSizes(51%, 100%);
+    .setSkew(e('0deg, 6deg'));
+    content: '';
+    background: @color;
+  }
+  &:after {
+    .Absolute;
+    .setSizes(50%, 100%);
+    .setSkew( e('0deg, -6deg'));
+    content: '';
+    top: 0;
+    right: 0;
+    background: @color;
+  }
+}
+
+// Cone
+.shapeCone(@color: lightgrey, @size: 100px) {
+  .setSizes(0, 0);
+  .setBorderLines(@size solid @color, round(@size * 0.7) solid transparent, none);
+  .setBorderRadiusAll(50%);
+}
+
+// Moon via Omid Rasouli
+.shapeMoon(@color: lightgrey, @size: 100px) {
+  @persent: round(@size * 0.1875);
+  .setSizes(@size, @size);
+  .setBorderRadiusAll(50%);
+  .setBoxShadow(@persent, @persent, 0, 0, @color);
+}
+
+// Flag
+.shapeFlag(@color: lightgrey, @back: white, @text: white, @width: 100px, @height: (@width / 2)) {
+  @halfSize: round(@width / 2);
+  .Relative;
+  .TextCenter;
+  .setSizes(@width);
+  .setBoxSizing();
+  min-height: @halfSize;
+  background: @color;
+  color: @text;
+  &:after {
+    .Absolute;
+    .setSizes(0, 0);
+    .setBorderLines(none, @halfSize solid transparent, round(@width * 0.13) solid @back);
+    content: "";
+    left: 0;
+    bottom: 0;
+  }
+}
+
+// Cross
+.shapeCross(@color: lightgrey, @size: 100px) {
+  @persent20: round(@size * 0.2);
+  @persent40: round(@size * 0.4);
+  .Relative;
+  .setSizes(@persent20, @size);
+  position: relative;
+  background: @color;
+  &:after {
+    .setAbsolute(@persent40, (0 - @persent40));
+    .setSizes(@size, @persent20);
+    content: "";
+    background: @color;
+  }
+}
+
+// Base
+.shapeBase(@color: lightgrey, @size: 100px) {
+  @persent20: round(@size * 0.2);
+  @persent35: round(@size * 0.35);
+  @persent50: round(@size * 0.5);
+  @persent55: round(@size * 0.55);
+  .Relative;
+  .Inline;
+  .setSizes(@size, @persent55);
+  .setMargin(@persent55, @persent20, 0 ,0);
+  background: @color;
+  &:before {
+    .setAbsolute((0 - @persent35), 0);
+    .setSizes(0, 0);
+    .setBorderLines(none, @persent50 solid transparent, @persent35 solid @color);
+    content: "";
+  }
+}
+
+// =============== /READY-MADE SHAPES ===========================
