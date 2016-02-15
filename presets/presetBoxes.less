@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси для блоков.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/settings.less";
+@import (less) "../lib/mixinsVisible.less";
+@import (less) "../lib/mixinsIndent.less";
+@import (less) "../lib/mixinsPosition.less";
+@import (less) "../lib/mixinsShadow.less";
+
+// Блок по умолчанию.
+.Box {
+    @paddingTop: 10px;
+    @marginTop: 10px;
+    .block;
+    .setBoxShadow(0, 1px, 2px, 0, @cShadow);
+    .setMargin(@marginTop, @marginTop * 1.6);
+    .setPadding(@paddingTop, @paddingTop * 1.6);
+}
+
+// Строковый блок по умолчанию.
+.BoxInline:extend(.Box) {
+    .inline;
+}
+
+// Установка для блока цвета границы и цвета фона одновременно.
+.setBoxBorderAndBack(@border: black, @size: 1px, @back: white, @line: solid) {
+    border: @size @line @border;
+    background-color: @back;
+}

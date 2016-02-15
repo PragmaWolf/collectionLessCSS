@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для позиционирования элементов
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Сделать элемент плавающим (влево).
+.floatLeft {
+    float: left;
+}
+
+// Сделать элемент плавающим (вправо).
+.floatRight {
+    float: right;
+}
+
+// Отмена плавающего элемента.
+.floatNone {
+    float: none;
+}
+
+// Сделать элемент строковым.
+.inline {
+    display: -moz-inline-stack;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+}
+
+// Сделать элемент строковым (принудительно).
+.inlineI {
+    display: -moz-inline-stack !important;
+    display: inline-block !important;
+    *display: inline !important;
+    zoom: 1;
+}
+
+// Центрирование элемента.
+.center {
+    margin: 0 auto;
+}
+
+// Абсолютное позиционирование элемента.
+.absolute {
+    position: absolute;
+}
+
+// Фиксированное позиционирование элемента.
+.fixed {
+    position: fixed;
+}
+
+// Относительное позиционирование элемента.
+.relative {
+    position: relative;
+}
+
+// Статичное позиционирование элемента.
+.static {
+    position: static;
+}
+
+// Установка абсолютного позиционирования с указанием верхнего и левого отступа.
+.setAbsolute(@top: 0, @left: 0) {
+    .absolute;
+    top: @top;
+    left: @left;
+}
+
+// Центрирование элемента относительно родителя.
+.setCenter(@indent: 0, @indent2: @indent) {
+    margin: @indent auto @indent2 auto;
+}
+
+// Установка строкового элемента с вертикальным позиционированием.
+.setInline(@align: top) {
+    .inline;
+    vertical-align: @align;
+}
+
+// Установка элемента как строкового и плавающего.
+.setInlineFloat(@align: top, @float: left) {
+    .setInline(@align);
+    float: @float;
+}

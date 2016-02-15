@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для создания анимации на CSS
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Анимация элемента.
+// Обязательное требование - наличие параметров анимации. Значение "auto" не анимируется.
+.setAnimation (@arg) {
+    -webkit-animation: @arg;
+    -moz-animation: @arg;
+    -ms-animation: @arg;
+    -o-animation: @arg;
+    animation: @arg;
+}
+
+// Создание кейфреймов для анимации.
+.setKeyframes(@name, @arguments) {
+    @-webkit-keyframes @name {
+        @arguments();
+    }
+    @-moz-keyframes @name {
+        @arguments();
+    }
+    @-ms-keyframes @name {
+        @arguments();
+    }
+    @-o-keyframes @name {
+        @arguments();
+    }
+    @keyframes @name {
+        @arguments();
+    }
+}
+
+// Установка эффекта перехода между двумя состояниями элемента.
+.setTransition(@what: all, @length: 0.2s, @easing: ease-in-out) {
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    -ms-transition: @arguments;
+    -o-transition: @arguments;
+    transition: @arguments;
+}

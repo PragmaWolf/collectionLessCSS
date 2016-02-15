@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для трансформации элементов
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Определяет расстояние от плоскости экрана до точки сходимости линий и тем самым задаёт, насколько выражен эффект перспективы. Точка сходимости по умолчанию располагается в центре элемента и может быть изменена с помощью свойства perspective-origin.
+// Расстояние от плоскости монитора до точки сходимости линий. Нулевое или отрицательное значение отменяет действие перспективы. Чем меньше значение, тем более выраженной выглядит перспектива и наоборот.
+.setPerspective (@value: 1000) {
+    -webkit-perspective: @value;
+    -moz-perspective: @value;
+    perspective: @value;
+}
+
+// Поворот элемента на заданный угол относительно точки трансформации, задаваемой свойством transform-origin.
+.setRotate(@deg) {
+    .setTransform(rotate(@deg));
+}
+
+// Масштаб элемента по горизонтали и вертикали.
+.setScale(@scale) {
+    .setTransform(scale(@scale));
+}
+
+// Наклоняет элемент на заданный угол по вертикали.
+.setSkew(@deg) {
+    .setTransform(skew(@deg));
+}
+
+// Трансформирует элемент, в частности, позволяет его масштабировать, вращать, сдвигать, наклонять, а также комбинировать виды трансформаций.
+.setTransform(@params) {
+    -webkit-transform: @params;
+    -moz-transform: @params;
+    -ms-transform: @params;
+    -o-transform: @params;
+    transform: @params;
+}
+
+// Задает точку относительно которой применяется трансформация элемента.
+.setTransformOrigin (@x: center, @y: center) {
+    -webkit-transform-origin: @arguments;
+    -moz-transform-origin: @arguments;
+    -ms-transform-origin: @arguments;
+    -o-transform-origin: @arguments;
+    transform-origin: @arguments;
+}
+
+// Сдвигает элемент на заданное значение по горизонтали и вертикали.
+.setTranslate(@x: 0, @y: 0) {
+    .setTransform(translate(@x, @y));
+}

@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси градиентов.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/materialColors.less";
+@import (less) "../lib/settings.less";
+@import (less) "../lib/mixinsGradient.less";
+
+// Готовые вертикальные градиенты по цветам
+.GradientVRed {
+    .setGradientVertical(@mcRed100, @mcRed200);
+    color: contrast(@mcRed200);
+}
+
+.GradientVOrange {
+    .setGradientVertical(@mcOrange50, @mcOrange100);
+    color: contrast(@mcOrange100);
+}
+
+.GradientVYellow {
+    .setGradientVertical(@mcYellow50, @mcYellow100);
+    color: contrast(@mcYellow100);
+}
+
+.GradientVGreen {
+    .setGradientVertical(@mcGreen50, @mcGreen100);
+    color: contrast(@mcGreen100);
+}
+
+.GradientVCyan, .GradientVLightBlue {
+    .setGradientVertical(@mcCyan50, @mcCyan100);
+    color: contrast(@mcCyan100);
+}
+
+.GradientVBlue {
+    .setGradientVertical(@mcBlue50, @mcBlue100);
+    color: contrast(@mcBlue100);
+}
+
+.GradientVPurple, .GradientVViolet {
+    .setGradientVertical(@mcPurple50, @mcPurple100);
+    color: contrast(@mcPurple100);
+}
+
+.GradientVWhite, .GradientVLightGrey {
+    .setGradientVertical(@cWhite, @mcGrey100);
+    color: contrast(@mcGrey100);
+}
+
+.GradientVGrey {
+    .setGradientVertical(@mcGrey100, @mcGrey200);
+    color: contrast(@mcGrey200);
+}
+
+.GradientVBlack, .GradientVDarkGrey {
+    .setGradientVertical(@mcGrey800, @mcGrey900);
+    color: contrast(@mcGrey900);
+}

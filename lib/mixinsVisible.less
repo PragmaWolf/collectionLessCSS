@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для отображения и прозрачности элементов
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Не отображать блок.
+.hide {
+    display: none;
+}
+
+// Не отображать блок (принудительно).
+.hideI {
+    display: none !important;
+}
+
+// Отображать блок, или элемент как блок.
+.block {
+    display: block;
+}
+
+// Отображать блок, или элемент как блок (принудительно).
+.blockI {
+    display: block !important;
+}
+
+// Отображать блок, или элемент как блок.
+.show {
+    display: block;
+}
+
+// Отображать блок, или элемент как блок (принудительно).
+.showI {
+    display: block !important;
+}
+
+// Сделать блок видимым.
+.visible {
+    visibility: visible;
+}
+
+// Сделать блок невидимым, но отображать.
+.invisible {
+    visibility: hidden;
+}
+
+// Установка параметров прозрачности блока.
+.setOpacity (@val: 1) {
+    @forMS: @val * 100;
+    -webkit-opacity: @val;
+    -moz-opacity: @val;
+    opacity: @val;
+    -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{forMS})";
+    filter: ~"alpha(opacity=@{forMS})";
+    zoom: 1;
+}

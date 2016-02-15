@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для использования Flex-box элементов
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Установка flex-контенера.
+// Направление: row || row-reverse || column || column-reverse
+// Перенос блоков на другие строки: nowrap || wrap || wrap-reverse
+// Выравнивание блоков: flex-start || flex-end || center || space-between || space-around
+// Выравнивание элементов: flex-start || flex-end || center || baseline || stretch
+// Выравнивание содержимого flex-строки: stretch || flex-start || flex-end || center || space-between || space-around
+.setFlexContainer(@direction: row, @wrap: wrap, @justify: center, @alignItems: flex-start, @alignContent: flex-start) {
+    .setFlex();
+    .setFlexDirection(@direction);
+    .setFlexWrap(@wrap);
+    .setFlexJustify(@justify);
+    .setFlexAlignItems(@alignItems);
+    .setFlexAlignContent(@alignContent);
+}
+
+// Установка flex-контейнера без параметров.
+.setFlex() {
+    display: -webkit-flex;
+    //display: -moz-flex;
+    display: flex;
+}
+
+// Установка выравнивания flex-строк
+// Выравнивание содержимого flex-строки: stretch || flex-start || flex-end || center || space-between || space-around
+.setFlexAlignContent(@align: flex-start) {
+    -webkit-align-content: @align;
+    -moz-align-content: @align;
+    align-content: @align;
+}
+
+// Установка выравнивания flex-элементы по вертикальной оси внутри контейнера.
+// Выравнивание элементов: flex-start || flex-end || center || baseline || stretch
+.setFlexAlignItems(@align: flex-start) {
+    -webkit-align-items: @align;
+    -moz-align-items: @align;
+    align-items: @align;
+}
+
+// Установка направления во flex-контейнере.
+// Направление: row || row-reverse || column || column-reverse
+.setFlexDirection(@direction: row) {
+    -webkit-flex-direction: @direction;
+    -moz-flex-direction: @direction;
+    flex-direction: @direction;
+}
+
+// Set flex-element
+// align-self: auto || stretch || flex-start || flex-end || center || baseline
+.setFlexItem (@order, @flex: 1, @alignSelf: auto) {
+    .setFlexItemOrder(@order);
+    .setFlexItemFlex(@flex);
+    .setFlexItemAlignSelf(@alignSelf);
+}
+
+// Задаёт выравнивание отдельного элемента в контейнере по поперечной оси.
+// Выравнивание по поперечной оси: auto || stretch || flex-start || flex-end || center || baseline
+.setFlexItemAlignSelf(@value: auto) {
+    -webkit-align-self: @value;
+    -moz-align-self: @value;
+    align-self: @value;
+}
+
+// Устанавливает как flex-элементы будут использовать свободное пространство.
+.setFlexItemFlex(@int: 1) {
+    -webkit-flex: @int;
+    -moz-flex: @int;
+    flex: @int;
+}
+
+// Задает сортировку flex-элементов.
+.setFlexItemOrder(@int) {
+    -webkit-order: @int;
+    -moz-order: @int;
+    order: @int;
+}
+
+// Задает позицию flex-элементов по основной оси.
+// Выравнивание: flex-start || flex-end || center || space-between || space-around
+.setFlexJustify(@justify: center) {
+    -webkit-justify-content: @justify;
+    -moz-justify-content: @justify;
+    justify-content: @justify;
+}
+
+// Перенос строк flex-элементов внутри flex-контейнера.
+// Перенос строк: nowrap || wrap || wrap-reverse
+.setFlexWrap(@wrap: wrap) {
+    -webkit-flex-wrap: @wrap;
+    -moz-flex-wrap: @wrap;
+    flex-wrap: @wrap;
+
+}

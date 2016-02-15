@@ -1,0 +1,297 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Сброс настроек CSS.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/mixinsBackground.less";
+@import (less) "../lib/mixinsBorder.less";
+@import (less) "../lib/mixinsCursor.less";
+@import (less) "../lib/mixinsFontNLine.less";
+@import (less) "../lib/mixinsIndent.less";
+@import (less) "../lib/mixinsLink.less";
+@import (less) "../lib/mixinsOutline.less";
+@import (less) "../lib/mixinsPosition.less";
+@import (less) "../lib/mixinsSize.less";
+@import (less) "../lib/mixinsText.less";
+@import (less) "../lib/mixinsVisible.less";
+
+abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, main, mark, menu, nav, object, ol, p, pre, q, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    .noIndent;
+    .verticalBaseline; // приводим все к одной базовой линии
+    .backTransparent; // чтобы не проскакивали левые фоны, установленные по умолчанию
+    .noBorder; // убираем бордюры
+    .noOutline; // обнуляем отступы
+    .setBoxSizing();
+    font-size: 100%; // размер шрифта всем одинаковый
+}
+
+html, body {
+    .setSizes(100%, 100%); // чтобы подвал книзу можно было прижать
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+html {
+    direction: ltr; // всегда показываем вертикальную полосу прокрутки
+    font-family: sans-serif;
+    font-size: @fontSize;
+    overflow-y: scroll;
+    unicode-bidi: embed;
+    -webkit-locale: ru;
+    locale: ru;
+}
+
+body {
+    .relative;
+    .noIndent;
+    .noBorder;
+    .textLeft;
+    .setFontMain(1.4);
+    background: @cPageBack;
+    color: @cText;
+    display: table;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[hidden], template {
+    .hide;
+}
+
+a {
+    // ссылка не в общем списке чтобы не сбрасывать outline по умолчанию
+    .noIndent;
+    .verticalBaseline;
+    .backTransparent;
+    font-size: 100%;
+}
+
+// порядок правил для ссылок имеет значение
+a, a:link, a:visited, a:hover, a:active, a:focus {
+    .setLinkStyle();
+}
+
+abbr[title] {
+    .setBorder(@cBorder, 1px, dotted);
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    .block;
+}
+
+audio, canvas, progress, video {
+    .inline;
+    .verticalBaseline;
+}
+
+audio:not([controls]) {
+    .hide;
+    height: 0;
+}
+
+b, strong {
+    font-weight: 700;
+}
+
+button, input, select, textarea {
+    .noMargin; // убираем отступы по умолчанию для элементов форм (в частности для checkbox и radio)
+    .setFontFamilyMain();
+    font-size: 100%; // делаем размер шрифтов везде одинаковым
+}
+
+button, input[type="button"], input[type="reset"], input[type="submit"], label {
+    .cursorHand; // курсор в виде руки для всех кликабельных элементов форм
+}
+
+button, input, optgroup, select, textarea {
+    .noMargin;
+    color: inherit;
+    font: inherit;
+}
+
+button {
+    overflow: auto;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+}
+
+button[disabled], html input[disabled] {
+    cursor: default;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    .noBorder;
+    .noPadding;
+}
+
+code, kbd, pre, samp, var {
+    font-family: monospace, monospace;
+    font-size: inherit;
+    white-space: pre-wrap;
+}
+
+dfn {
+    .italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    .setFontFamilyMain();
+    font-weight: 700;
+    color: @cBlack;
+}
+
+h1 {
+    .setFontSize(2.8);
+    .setMargin(0, 0, 28px);
+}
+
+h2 {
+    .setFontSize(2.6);
+    .setMargin(0, 0, 26px);
+}
+
+h3 {
+    .setFontSize(2.4);
+    .setMargin(0, 0, 24px);
+}
+
+h4 {
+    .setFontSize(2.2);
+    .setMargin(0, 0, 22px);
+}
+
+h5 {
+    .setFontSize(2);
+    .setMargin(0, 0, 20px);
+}
+
+h6 {
+    .setFontSize(1.8);
+    .setMargin(0, 0, 18px);
+}
+
+hr {
+    .setBoxSizing(content-box);
+    height: 0;
+}
+
+input {
+    line-height: normal;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    .noPadding;
+    .verticalBottom; // вертикальное выравнивание чекбоксов и радиобатонов относительно меток
+}
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+input[type="search"] {
+    .setBoxSizing(content-box);
+    -webkit-appearance: textfield;
+    &::-webkit-search-cancel-button, &::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+}
+
+input[type="password"], input[type="text"], textarea {
+    .noPadding; // убираем внутренние отступы для текстовых полей
+}
+
+legend {
+    .noBorder;
+    .noPadding;
+}
+
+mark {
+    background: @mcBlueGrey900;
+    color: @cWhite;
+}
+
+nav ul {
+    list-style: none;
+}
+
+optgroup {
+    font-weight: 700;
+}
+
+ol {
+    list-style: decimal;
+}
+
+pre {
+    overflow: auto;
+}
+
+sub, sup {
+    .relative;
+    .verticalBaseline;
+    font-size: smaller;
+    line-height: 0;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+sup {
+    vertical-align: super;
+}
+
+svg:not(:root) {
+    .invisible;
+}
+
+table {
+    // устраняем отступы между ячейками таблицы
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: table;
+    table-layout: auto;
+}
+
+tbody {
+    display: table-row-group;
+}
+
+textarea {
+    overflow: auto;
+}
+
+th, td, td img {
+    .verticalTop; // возвращаем привычное вертикальное выравнивание
+}
+
+th, td {
+    display: table-cell;
+}
+
+thead {
+    .textCenter;
+    display: table-header-group;
+}
+
+tfoot {
+    display: table-footer-group;
+}
+
+tr {
+    display: table-row;
+}
+
+ul {
+    list-style: disc;
+}

@@ -1,0 +1,188 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси HTML тегов.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/mixinsBackground.less";
+@import (less) "../lib/mixinsBorder.less";
+@import (less) "../lib/mixinsFontNLine.less";
+@import (less) "../lib/mixinsGradient.less";
+@import (less) "../lib/mixinsIndent.less";
+@import (less) "../lib/mixinsLink.less";
+@import (less) "../lib/mixinsPosition.less";
+@import (less) "../lib/mixinsShadow.less";
+@import (less) "../lib/mixinsSize.less";
+@import (less) "../lib/mixinsText.less";
+@import (less) "../lib/mixinsVisible.less";
+
+a {
+    .setLinks(@mcOrange900, underline, @mcOrangeA700, underline, @mcOrange900, underline);
+}
+
+abbr {
+    .caps;
+}
+
+address {
+    .setFontFamilyMain();
+}
+
+big {
+    .setFontSizeWeight(1.8, 400);
+}
+
+body {
+    background-color: @mcGrey100;
+    .setBackgroundUrlFixed('back_woman_dark.jpg');
+}
+
+blockquote {
+    .block;
+    .setMargin(0, 0, 15px, 15px);
+    .setPadding(10px, 20px);
+    .setBorderRadius(@radiusSmall);
+    .setBoxShadow(0, 1px, 2px, 0, @cShadow);
+    .setGradientVertical(@mcOrange50, @mcOrange100);
+    font-style: oblique;
+    &.Center {
+        .floatNone;
+        .setCenter(0, 15px);
+    }
+    &.Left {
+        .floatLeft;
+        .setMargin(0, 15px, 15px, 0);
+    }
+    &.Right {
+        .floatRight;
+        .setMargin(0, 0, 15px, 15px);
+    }
+}
+
+blockquote, cite {
+    .setFontFamilyMain();
+    .setFontSize(1.4);
+}
+
+caption {
+    .oblique;
+    .textCenter;
+    .setFontFamilyMain();
+    .setFontSizeWeight(1.4, 400);
+    .setPadding(0, 0, 5px);
+    .setSizes(100%);
+    border-bottom: none;
+    display: table-caption;
+}
+
+code, kbd, pre, samp, var {
+    .setFontSize(1.4);
+    font-family: @fontCourierNew;
+}
+
+code, pre, samp {
+    .block;
+    .setMargin(0, 0, 15px);
+}
+
+dd {
+    .block;
+    .setPadding(5px, 25px, 0);
+}
+
+details {
+    .setPadding(5px, 0, 5px);
+}
+
+details, summary {
+    font-family: @fontMain;
+}
+
+dl, p {
+    .block;
+    .setMargin(0, 0, 15px);
+}
+
+dt {
+    .block;
+    font-weight: 700;
+}
+
+img {
+    .block;
+    &.Center {
+        .floatNone;
+        .setCenter(0, 15px);
+    }
+    &.Left {
+        .floatLeft;
+        .setMargin(0, 15px, 15px, 0);
+    }
+    &.Right {
+        .floatRight;
+        .setMargin(0, 0, 15px, 15px);
+    }
+}
+
+li {
+    .setMargin(0, 0, 5px);
+}
+
+ol, ul {
+    .setMargin(0, 0, 15px, 25px);
+}
+
+small {
+    .setFontMain(1.4, 300);
+}
+
+sub, sup {
+    .setFontMain(1.3, 300);
+}
+
+summary {
+    .caps;
+    font-weight: 700;
+}
+
+table {
+    .setSizes(100%);
+    .setBoxShadow(0, 1px, 2px, 0, @cShadow);
+    .setMargin(10px, 0, 20px);
+    .setBoxSizing();
+    &.BySize {
+        .setSizes();
+    }
+}
+
+tbody, tfoot, thead {
+    .setSizes(100%);
+}
+
+tbody {
+    background-color: @cWhite;
+}
+
+thead {
+    .textCenter;
+    background-color: @mcOrange300;
+}
+
+tfoot {
+    background-color: @mcGrey300;
+}
+
+td, th {
+    .verticalMiddle;
+    .setBorder(@mcGrey900);
+    .setPadding(3px, 5px, 2px);
+    .setSizes();
+    .setBoxSizing();
+}
+
+th {
+    .setFontMain(1.6, 700);
+}

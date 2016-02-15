@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси для границ элемента.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/mixinsBorder.less";
+@import (less) "../lib/mixinsShadow.less";
+
+// Двухцветная граница элемента.
+.setDoubleBorders(@colorOne: green, @colorTwo: red) {
+    .setBorder(@colorOne, 1px, solid);
+    .setBoxShadow(0, 0, 0, 1px, @colorTwo);
+}
+
+// Трехцветная граница элемента.
+.setTripleBorders(@colorOne: green, @colorTwo: red, @colorThree: blue) {
+    .setBorder(@colorOne, 1px, solid);
+    -webkit-box-shadow: 0 0 0 1px @colorTwo, 0 0 0 2px @colorThree;
+    -moz-box-shadow: 0 0 0 1px @colorTwo, 0 0 0 2px @colorThree;
+    -o-box-shadow: 0 0 0 1px @colorTwo, 0 0 0 2px @colorThree;
+    box-shadow: 0 0 0 1px @colorTwo, 0 0 0 2px @colorThree;
+}

@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для установки размеров элементов
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Вывод элемента (картинки) по ширине родительского блока.
+.autoWidth {
+    height: auto;
+    max-width: 100%;
+    width: auto \9; // ie8
+}
+
+// 100% ширина
+.width100 {
+    width: 100%;
+}
+
+// 100% ширина (принудительно)
+.width100I {
+    width: 100% !important;
+}
+
+// Изменения алгоритма вычисления высоты и ширины элемента.
+.setBoxSizing(@arg: border-box) {
+    -webkit-box-sizing: @arg;
+    -moz-box-sizing: @arg;
+    box-sizing: @arg;
+}
+
+// Установка высоты и ширины элемента.
+.setSizes(@width: auto, @height: auto) {
+    width: @width;
+    height: @height;
+}
+
+// Установка максимальной высоты и ширины элемента.
+.setSizesMax(@width: none, @height: none) {
+    max-width: @width;
+    max-height: @height;
+}
+
+// Установка минимальной высоты и ширины элемента.
+.setSizesMin(@width: none, @height: none) {
+    min-width: @width;
+    min-height: @height;
+}
+
+// Установка минимальной и макстмальной высоты и ширины элемента.
+.setSizesMinMax(@widthMin: none, @heightMin: none, @widthMax: none, @heightMax: none) {
+    .setSizesMin(@widthMin, @heightMin);
+    .setSizesMax(@widthMax, @heightMax);
+}

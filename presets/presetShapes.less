@@ -1,0 +1,581 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси форм (shapes) элементов.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/mixinsBorder.less";
+@import (less) "../lib/mixinsIndent.less";
+@import (less) "../lib/mixinsPosition.less";
+@import (less) "../lib/mixinsShadow.less";
+@import (less) "../lib/mixinsSize.less";
+@import (less) "../lib/mixinsText.less";
+@import (less) "../lib/mixinsTransform.less";
+@import (less) "../lib/mixinsVisible.less";
+
+// Устанавливаем базовый размер шейдера
+@size: 100px;
+
+// Квадрат или прямоугольник
+.shapeSquareOrRectangle(@back: lightgrey, @width: 100px, @height: @width) {
+    .setSizes(@width, @height);
+    background: @back;
+}
+
+.shapeSquareOrRectangleBordered(@back: lightgrey, @border: 1px solid black, @width: 100px, @height: @width) {
+    .shapeSquareOrRectangle(@back, @width, @height);
+    .setBorderLines(@border);
+}
+
+// Круг
+.shapeCircle(@back: lightgrey, @size: 100px) {
+    @isRadius: round(@size / 2);
+    .setSizes(@size, @size);
+    .setBorderRadiusAll(@isRadius);
+    background: @back;
+}
+
+.shapeCircleBordered(@back: lightgrey, @border: 1px solid black, @size: 100px) {
+    .shapeCircle(@back, @size);
+    .setBorderLines(@border);
+}
+
+// Овал
+.shapeOval(@back: lightgrey, @width: 200px, @height: 100px) {
+    @radius: e(%("%a / %d", round(@width / 2), round(@height / 2)));
+    .setSizes(@width, @height);
+    .setBorderRadiusAll(@radius);
+    background: @back;
+}
+
+.shapeOvalBordered(@back: lightgrey, @border: 1px solid black, @width: 200px, @height: 100px) {
+    .shapeOval(@back, @width, @height);
+    .setBorderLines(@border);
+}
+
+// Треугольник с переключением направления
+// switch: up || down || left || right || topleft || topright || bottomleft || bottomright
+.shapeTriangle(@switch: up, @color: lightgrey, @size: 100px) {
+    .setSizes(0, 0);
+    .shapeTriangleDirection(@switch);
+}
+
+// Треугольник направленный вверх
+.shapeTriangleDirection(up) {
+    @halfSize: round(@size / 2);
+    .setBorderLines(none, @halfSize solid transparent, @size solid @color);
+}
+
+// Треугольник направленный вниз
+.shapeTriangleDirection(down) {
+    @halfSize: round(@size / 2);
+    .setBorderLines(@size solid @color, @halfSize solid transparent, none);
+}
+
+// Треугольник направленный влево
+.shapeTriangleDirection(left) {
+    @halfSize: round(@size / 2);
+    .setBorderLines(@halfSize solid transparent, @size solid @color, @halfSize solid transparent, none);
+}
+
+// Треугольник направленный вправо
+.shapeTriangleDirection(right) {
+    @halfSize: round(@size / 2);
+    .setBorderLines(@halfSize solid transparent, none, @halfSize solid transparent, @size solid @color);
+}
+
+// Треугольник направленный вверх и влево
+.shapeTriangleDirection(topleft) {
+    .setBorderLines(@size solid @color, @size solid transparent, none, none);
+}
+
+// Треугольник направленный вверх и вправо
+.shapeTriangleDirection(topright) {
+    .setBorderLines(@size solid @color, none, none, @size solid transparent);
+}
+
+// Треугольник направленный вниз и влево
+.shapeTriangleDirection(bottomleft) {
+    .setBorderLines(none, @size solid transparent, @size solid @color, none);
+}
+
+// Треугольник направленный вниз и вправо
+.shapeTriangleDirection(bottomright) {
+    .setBorderLines(none, none, @size solid @color, @size solid transparent);
+}
+
+// Стрелка с загнутым кончиком
+.shapeCurvedArrow(@color: lightgrey, @arrowSize: 12px) {
+    @borderSize: round(@arrowSize * 0.75);
+    .relative;
+    .setSizes(0, 0);
+    .setBorderLines(@borderSize solid transparent, @borderSize solid @color, none, none);
+    .setRotate(10deg);
+    &:after {
+        .setAbsolute((0 - @arrowSize), (0 - @borderSize));
+        .setBorderLines(round(@arrowSize * 0.25) solid @color, 0 solid transparent, 0 solid transparent);
+        .setSizes(@arrowSize, @arrowSize);
+        .setRotate(45deg);
+        .setBorderRadius(round(@arrowSize * 1.67), 0, 0, 0);
+        content: "";
+    }
+}
+
+// Трапеция
+.shapeTrapezoid(@color: lightgrey, @width: 100px) {
+    .setSizes(@width, 0);
+    .setBorderLines(none, round(@width / 2) solid transparent, @width solid @color);
+}
+
+// Параллелограмм
+.shapeParallelogram(@color: lightgrey, @width: 150px, @height: 100px, @skew: 20deg) {
+    .setSizes(@width, @height);
+    .setSkew(@skew);
+    background: @color;
+}
+
+// Шестиконечная звезда
+.shapeStarSixPoints(@color: lightgrey, @size: 100px) {
+    @halfSize: round(@size / 2);
+    .relative;
+    .setSizes(0, 0);
+    .setBorderLines(none, @halfSize solid transparent, @size solid @color);
+    &:after {
+        .setAbsolute(round(@size / 2.9), (0 - @halfSize));
+        .setSizes(0, 0);
+        .setBorderLines(@size solid @color, @halfSize solid transparent, none);
+        content: "";
+    }
+}
+
+// Пятиконечная звезда
+.shapeStarFivePoints(@color: lightgrey, @size: 100px) {
+    .relative;
+    .block;
+    .setRotate(35deg);
+    .setSizes(0, 0);
+    .setMargin(round(@size / 2), 0);
+    .setBorderLines(none, @size solid transparent, round(@size * 0.7) solid @color);
+    color: @color;
+    &:before {
+        .block;
+        .setAbsolute((0 - round(@size * 0.45)), (0 - round(@size * 0.65)));
+        .setRotate(-35deg);
+        .setSizes(0, 0);
+        .setBorderLines(none, round(@size * 0.3) solid transparent, round(@size * 0.8) solid @color);
+        content: '';
+    }
+    &:after {
+        .block;
+        .setAbsolute(round(@size * 0.3), (0 - round(@size * 1.05)));
+        .setRotate(-70deg);
+        .setSizes(0, 0);
+        .setBorderLines(none, @size solid transparent, round(@size * 0.7) solid @color);
+        content: '';
+        color: @color;
+    }
+}
+
+// Пятиугольник
+.shapePentagon(@color: lightgrey, @size: 100px) {
+    .relative;
+    .setSizes(@size);
+    .setBorderLines(round(@size * 0.9) solid @color, round(@size * 0.3) solid transparent, 0 solid transparent);
+    &:before {
+        .setAbsolute((0 - round(@size * 1.54)), (0 - round(@size * 0.295)));
+        .setSizes(0, 0);
+        .setBorderLines(0 solid transparent, round(@size * 0.8) solid transparent, round(@size * 0.64) solid @color);
+        content: "";
+    }
+}
+
+// Шестиугольник
+.shapeHexagon(@color: lightgrey, @size: 100px) {
+    @persent25: round(@size * 0.25);
+    @persent50: round(@size * 0.5);
+    .relative;
+    .setSizes(@size, round(@size * 0.55));
+    background: @color;
+    &:before {
+        .setAbsolute((0 - @persent25));
+        .setSizes(0, 0);
+        .setBorderLines(none, @persent50 solid transparent, @persent25 solid @color);
+        content: "";
+    }
+    &:after {
+        .absolute;
+        .setSizes(0, 0);
+        .setBorderLines(@persent25 solid @color, @persent50 solid transparent, none);
+        content: "";
+        left: 0;
+        bottom: 0 - @persent25;
+    }
+}
+
+// Восьмиугольник
+.shapeOctagon(@color: lightgrey, @back: white, @size: 100px) {
+    @persent29: round(@size * 0.29);
+    @persent42: round(@size * 0.42);
+    .relative;
+    .setSizes(@size, @size);
+    background: @color;
+    &:before {
+        .setAbsolute();
+        .setSizes(@persent42, 0);
+        .setBorderLines(none, @persent29 solid @back, @persent29 solid @color);
+        content: "";
+    }
+    &:after {
+        .absolute;
+        .setSizes(@persent42, 0);
+        .setBorderLines(@persent29 solid @color, @persent29 solid @back, none);
+        content: "";
+        bottom: 0;
+        left: 0;
+    }
+}
+
+// Сердце
+.shapeHeart(@color: lightgrey, @size: 100px) {
+    @halfSize: round(@size / 2);
+    .relative;
+    .setSizes(@size, round(@size * 0.9));
+    &:before, &:after {
+        .setAbsolute(0, @halfSize);
+        .setRotate(-45deg);
+        .setSizes(@halfSize, round(@size * 0.8));
+        .setBorderRadius(@halfSize, @halfSize, 0, 0);
+        .setTransformOrigin(0, 100%);
+        content: "";
+        background: @color;
+    }
+    &:after {
+        left: 0;
+        .setRotate(45deg);
+        .setTransformOrigin(100%, 100%);
+    }
+}
+
+// Знак бесконечности
+.shapeInfinity(@color: lightgrey, @size: 100px) {
+    @halfSize: round(@size / 2);
+    .relative;
+    .setSizes(round(@size * 2.12), @size);
+    &:before,
+    &:after {
+        .setAbsolute();
+        .setBorderRadius(@halfSize, @halfSize, 0, @halfSize);
+        .setRotate(-45deg);
+        .setSizes(round(@size * 0.6), round(@size * 0.6));
+        .setBorder(@color, round(@size * 0.2));
+        content: "";
+    }
+    &:after {
+        .setBorderRadius(@halfSize, @halfSize, @halfSize, 0);
+        .setRotate(45deg);
+        left: auto;
+        right: 0;
+    }
+}
+
+// Ромб
+.shapeDiamond(@color: lightgrey, @size: 100px) {
+    .relative;
+    .setSizes(0, 0);
+    .setBorder(transparent, @size);
+    border-bottom-color: @color;
+    top: 0 - @size;
+    &:after {
+        .setAbsolute(@size, (0 - @size));
+        .setSizes(0, 0);
+        .setBorder(transparent, @size);
+        content: '';
+        border-top-color: lightgrey;
+    }
+}
+
+// Форма алмаза
+.shapeDiamondShield(@color: lightgrey, @size: 100px) {
+    .relative;
+    .setSizes(0, 0);
+    .setBorder(transparent, @size);
+    border-bottom: round(@size * 0.4) solid @color;
+    top: 0 - @size;
+    &:after {
+        .setAbsolute(round(@size * 0.4), (0 - @size));
+        .setSizes(0, 0);
+        .setBorder(transparent, @size);
+        content: '';
+        border-top: round(@size * 1.4) solid @color;
+    }
+}
+
+// Вытянутый вертикально ромб
+.shapeDiamondNarrow(@color: lightgrey, @size: 100px) {
+    @persent140: round(@size * 1.4);
+    .relative;
+    .setSizes(0, 0);
+    .setBorder(transparent, @size);
+    border-bottom: @persent140 solid @color;
+    top: 0 - @size;
+    &:after {
+        .setAbsolute(@persent140, (0 - @size));
+        .setSizes(0, 0);
+        .setBorder(transparent, @size);
+        content: '';
+        border-top: @persent140 solid @color;
+    }
+}
+
+// Форма обрезанного алмаза
+.shapeDiamondCut(@color: lightgrey, @size: 100px) {
+    @halfSize: round(@size / 2);
+    .relative;
+    .setSizes(@size, 0);
+    .setBorderLines(0 solid transparent, @halfSize solid transparent, @halfSize solid @color, @halfSize solid transparent);
+    .setMargin(round(@size * 0.4), 0, @size);
+    &:after {
+        .setAbsolute(@halfSize, (0 - @halfSize));
+        .setSizes(0, 0);
+        .setBorderLines(round(@size * 1.4) solid @color, @size solid transparent, 0 solid transparent, @size solid transparent);
+        content: "";
+    }
+}
+
+// Яйцо
+.shapeEgg(@color: lightgrey, @size: 100px) {
+    .block;
+    .setSizes(@size, round(@size * 1.43));
+    .setBorderRadiusAll(e('50% 50% 50% 50% / 60% 60% 40% 40%'));
+    background-color: @color;
+}
+
+// Pac-Man
+.shapePacman(@color: lightgrey, @size: 100px) {
+    .setSizes(0, 0);
+    .setBorder(@color, @size);
+    .setBorderRadius(@size);
+    border-right: @size solid transparent;
+}
+
+// Talk Bubble
+.shapeTalkbubble(@color: lightgrey, @width: 100px, @height: (@width / 1.5)) {
+    @persent8: round(@height * 0.08);
+    @persent11: round(@height * 0.11);
+    @persent21: round(@height * 0.21);
+    .relative;
+    .setSizes(@width, @height);
+    .setBorderRadius(@persent8);
+    background: @color;
+    &:before {
+        .absolute;
+        .setSizes(0, 0);
+        .setBorderLines(@persent11 solid transparent, @persent21 solid @color, @persent11 solid transparent, none);
+        content: "";
+        right: 100%;
+        top: (round(@height / 2) - @persent11);
+    }
+}
+
+// 12 Point Burst
+.shapeBurst12(@color: lightgrey, @size: 100px) {
+    .relative;
+    .textCenter;
+    .setSizes(@size, @size);
+    background: @color;
+    &:before, &:after {
+        .setAbsolute(0, 0);
+        .setSizes(@size, @size);
+        content: "";
+        background: @color;
+    }
+    &:before {
+        .setRotate(30deg);
+    }
+    &:after {
+        .setRotate(60deg);
+    }
+}
+
+// 8 Point Burst
+.shapeBurst8(@color: lightgrey, @size: 100px) {
+    .relative;
+    .textCenter;
+    .setSizes(@size, @size);
+    .setRotate(20deg);
+    background: @color;
+    &:before {
+        .setAbsolute(0, 0);
+        .setSizes(@size, @size);
+        .setRotate(135deg);
+        content: "";
+        background: @color;
+    }
+}
+
+// Инь-Янь
+.shapeYinYang(@color: lightgrey, @back: white, @size: 100px) {
+    @persent2: round(@size * 0.021);
+    @persent12: round(@size * 0.125);
+    @persent18: round(@size * 0.1875);
+    .relative;
+    .setBorderRadius(100%);
+    .setSizes(@size, (@size / 2));
+    .setBorderLines(@persent2 solid @color, @persent2 solid @color, round(@size / 2) solid @color, @persent2 solid @color);
+    background: @back;
+    &:before {
+        .setAbsolute(50%, 0);
+        .setBorder(@color, @persent18);
+        .setBorderRadius(100%);
+        .setSizes(@persent12, @persent12);
+        content: "";
+        background: @back;
+    }
+    &:after {
+        .setAbsolute(50%, 50%);
+        .setBorder(@back, @persent18);
+        .setBorderRadius(100%);
+        .setSizes(@persent12, @persent12);
+        content: "";
+        background: @color;
+    }
+}
+
+// Награда
+.shapeBadgeRibbon(@color: lightgrey, @size: 100px) {
+    @persent10: round(@size * 0.1);
+    @persent40: round(@size * 0.4);
+    @persent70: round(@size * 0.7);
+    .relative;
+    .setSizes(@size, @size);
+    .setBorderRadius(round(@size / 2));
+    background: @color;
+    &:before,
+    &:after {
+        .setAbsolute(@persent70, (0 - @persent10));
+        .setBorderLines(none, @persent40 solid transparent, @persent70 solid @color);
+        .setRotate(-140deg);
+        content: '';
+    }
+    &:after {
+        .setRotate(140deg);
+        left: auto;
+        right: (0 - @persent10);
+    }
+}
+
+// Телеэкран
+.shapeTVScreen(@color: lightgrey, @text: white, @size: 100px) {
+    .relative;
+    .textCenter;
+    .setSizes(@size, round(@size * 0.75));
+    .setMargin(round(@size * 0.1), 0);
+    .setBorderRadiusAll(e('50% / 10%'));
+    background: @color;
+    color: @text;
+    &:before {
+        .setAbsolute(10%, -5%);
+        .setBorderRadiusAll(e('5% / 50%'));
+        content: '';
+        bottom: 10%;
+        right: -5%;
+        background: inherit;
+    }
+}
+
+// Шеврон
+.shapeChevron(@color: lightgrey, @width: 100px, @height: round(@width * 0.30)) {
+    .relative;
+    .textCenter;
+    .setSizes(@width, @height);
+    .setPadding(round(@width * 0.06));
+    margin-bottom: round(@width * 0.03);
+    &:before {
+        .setAbsolute(0, 0);
+        .setSizes(51%, 100%);
+        .setSkew(e('0deg, 6deg'));
+        content: '';
+        background: @color;
+    }
+    &:after {
+        .absolute;
+        .setSizes(50%, 100%);
+        .setSkew(e('0deg, -6deg'));
+        content: '';
+        top: 0;
+        right: 0;
+        background: @color;
+    }
+}
+
+// Конус
+.shapeCone(@color: lightgrey, @size: 100px) {
+    .setSizes(0, 0);
+    .setBorderLines(@size solid @color, round(@size * 0.7) solid transparent, none);
+    .setBorderRadiusAll(50%);
+}
+
+// Полумесяц
+.shapeMoon(@color: lightgrey, @size: 100px) {
+    @persent: round(@size * 0.1875);
+    .setSizes(@size, @size);
+    .setBorderRadiusAll(50%);
+    .setBoxShadow(@persent, @persent, 0, 0, @color);
+}
+
+// Флаг
+.shapeFlag(@color: lightgrey, @back: white, @text: white, @width: 100px, @height: (@width / 2)) {
+    @halfSize: round(@width / 2);
+    .relative;
+    .textCenter;
+    .setSizes(@width);
+    min-height: @halfSize;
+    background: @color;
+    color: @text;
+    &:after {
+        .absolute;
+        .setSizes(0, 0);
+        .setBorderLines(none, @halfSize solid transparent, round(@width * 0.13) solid @back);
+        content: "";
+        left: 0;
+        bottom: 0;
+    }
+}
+
+// Крест
+.shapeCross(@color: lightgrey, @size: 100px) {
+    @persent20: round(@size * 0.2);
+    @persent40: round(@size * 0.4);
+    .relative;
+    .setSizes(@persent20, @size);
+    position: relative;
+    background: @color;
+    &:after {
+        .setAbsolute(@persent40, (0 - @persent40));
+        .setSizes(@size, @persent20);
+        content: "";
+        background: @color;
+    }
+}
+
+// Домик
+.shapeBase(@color: lightgrey, @size: 100px) {
+    @persent20: round(@size * 0.2);
+    @persent35: round(@size * 0.35);
+    @persent50: round(@size * 0.5);
+    @persent55: round(@size * 0.55);
+    .relative;
+    .inline;
+    .setSizes(@size, @persent55);
+    .setMargin(@persent55, @persent20, 0, 0);
+    background: @color;
+    &:before {
+        .setAbsolute((0 - @persent35), 0);
+        .setSizes(0, 0);
+        .setBorderLines(none, @persent50 solid transparent, @persent35 solid @color);
+        content: "";
+    }
+}

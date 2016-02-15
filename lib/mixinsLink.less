@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для установки стилей ссылок
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Цвет и оформление ссылок с отдельным указанием для каждого псевдоэлемента
+.setLinks(@link: blue, @linkDecor: underline,
+       @hover: darken(@link, 10%), @hoverDecor: none,
+       @focus: lighten(@link, 10%), @focusDecor: @linkDecor) {
+    .setLinkStyle(@link, @linkDecor);
+    // order of rules is important for links
+    &:link, &:visited {
+        .setLinkStyle(@link, @linkDecor);
+    }
+    &:hover {
+        .setLinkStyle(@hover, @hoverDecor);
+    }
+    &:focus, &:active {
+        .setLinkStyle(@focus, @focusDecor);
+    }
+}
+
+// Общий цвет и оформление ссылок с псевдоэлементами
+.setLinksAll(@color: blue, @decor: underline) {
+    .setLinkStyle(@color, @decor);
+    // order of rules is important for links
+    &:link, &:visited, &:hover, &:active, &:focus {
+        .setLinkStyle(@color, @decor);
+    }
+}
+
+// Цвет и оформление ссылок без псевдоэлементов
+.setLinkStyle(@color: blue, @decoration: underline) {
+    color: @color;
+    text-decoration: @decoration;
+}

@@ -1,0 +1,229 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси для кнопок.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/settings.less";
+@import (less) "../lib/materialColors.less";
+@import (less) "../lib/mixinsBorder.less";
+@import (less) "../lib/mixinsCursor.less";
+@import (less) "../lib/mixinsFontNLine.less";
+@import (less) "../lib/mixinsGradient.less";
+@import (less) "../lib/mixinsIndent.less";
+@import (less) "../lib/mixinsLink.less";
+@import (less) "../lib/mixinsOutline.less";
+@import (less) "../lib/mixinsPosition.less";
+@import (less) "../lib/mixinsShadow.less";
+@import (less) "../lib/mixinsText.less";
+@import (less) "../lib/mixinsVisible.less";
+
+// Объемная кнопка.
+.button {
+    .setButton();
+}
+
+// Цвета для подготовленных кнопок.
+.buttonRed {
+    .setButtonColor(@mcRed400);
+}
+
+.buttonOrange {
+    .setButtonColor(@mcOrange500);
+}
+
+.buttonYellow {
+    .setButtonColor(@mcAmber500);
+}
+
+.buttonGreen {
+    .setButtonColor(@mcGreen500);
+}
+
+.buttonCyan, .buttonLightBlue {
+    .setButtonColor(@mcCyan500);
+}
+
+.buttonBlue {
+    .setButtonColor(@mcBlue500);
+}
+
+.buttonPurple, .buttonViolet {
+    .setButtonColor(@mcPurple500);
+}
+
+.buttonWhite, .buttonLightGrey {
+    .setButtonColor(@mcGrey100);
+}
+
+.buttonGrey {
+    .setButtonColor(@mcGrey400);
+}
+
+.buttonBlack, .buttonDarkGrey {
+    .setButtonColor(@mcGrey800);
+}
+
+// Плоская кнопка.
+.buttonFlat {
+    .setButtonFlat();
+}
+
+// Цвета для плоских кнопок.
+.buttonFlatRed {
+    .setButtonFlatColor(@mcRed500);
+}
+
+.buttonFlatOrange {
+    .setButtonFlatColor(@mcOrange500);
+}
+
+.buttonFlatYellow {
+    .setButtonFlatColor(@mcAmber500);
+}
+
+.buttonFlatGreen {
+    .setButtonFlatColor(@mcGreen500);
+}
+
+.buttonFlatCyan, .buttonFlatLightBlue {
+    .setButtonFlatColor(@mcCyan500);
+}
+
+.buttonFlatBlue {
+    .setButtonFlatColor(@mcBlue500);
+}
+
+.buttonFlatPurple, .buttonFlatViolet {
+    .setButtonFlatColor(@mcPurple500);
+}
+
+.buttonFlatWhite, .buttonFlatLightGrey {
+    .setButtonFlatColor(@mcGrey100);
+}
+
+.buttonFlatGrey {
+    .setButtonFlatColor(@mcGrey400);
+}
+
+.buttonFlatBlack, .buttonFlatDarkGrey {
+    .setButtonFlatColor(@mcGrey800);
+}
+
+// Цвета фонов для плоских кнопок.
+.buttonFlatBackRed {
+    .setButtonFlatBackColor(@mcRed500);
+}
+
+.buttonFlatBackOrange {
+    .setButtonFlatBackColor(@mcOrange500);
+}
+
+.buttonFlatBackYellow {
+    .setButtonFlatBackColor(@mcAmber500);
+}
+
+.buttonFlatBackGreen {
+    .setButtonFlatBackColor(@mcGreen500);
+}
+
+.buttonFlatBackCyan, .buttonFlatBackLightBlue {
+    .setButtonFlatBackColor(@mcCyan500);
+}
+
+.buttonFlatBackBlue {
+    .setButtonFlatBackColor(@mcBlue500);
+}
+
+.buttonFlatBackPurple, .buttonFlatBackViolet {
+    .setButtonFlatBackColor(@mcPurple500);
+}
+
+.buttonFlatBackWhite, .buttonFlatBackLightGrey {
+    .setButtonFlatBackColor(@mcGrey100);
+}
+
+.buttonFlatBackGrey {
+    .setButtonFlatBackColor(@mcGrey400);
+}
+
+.buttonFlatBackBlack, .buttonFlatBackDarkGrey {
+    .setButtonFlatBackColor(@mcGrey800);
+}
+
+// Оформление объемной кнопки.
+.setButton() {
+    @height: 40px;
+    .block;
+    .caps;
+    .cursorHand;
+    .noBorder;
+    .noOutline;
+    .setBorderRadius(@radiusSmall);
+    .setBoxShadow(0, 1px, 2px, 0, @mcBlueGrey300);
+    .setFontMain(1.4, 700);
+    .setPadding(10px, 16px);
+    .textCenter;
+    height: @height;
+    overflow: hidden;
+    &:active {
+        .noBorder;
+        .noBoxShadow;
+        padding-top: 11px;
+        padding-bottom: 10px;
+    }
+}
+
+// Установка цвета для объемной кнопки.
+.setButtonColor(@color: @cWhite) {
+    .setBorderLines(none, none, 2px solid darken(@color, 20%), none);
+    .setGradientVertical(@color, darken(@color, 10%));
+    color: contrast(darken(@color, 5%));
+    &:active {
+        .setBorderLines(none, none, 1px solid darken(@color, 5%), none);
+        .setGradientVertical(darken(@color, 10%), @color);
+    }
+}
+
+// Оформление плоской кнопки.
+.setButtonFlat() {
+    @paddingTop: 8px;
+    .inline;
+    .cursorHand;
+    .noOutline;
+    .textCenter;
+    .verticalMiddle;
+    .caps;
+    .setBorderRadius(@radiusSmall);
+    .setFontMain(1.4, 700);
+    .setPadding(@paddingTop, @paddingTop * 1.6);
+    .setLinksAll(@cLink, none);
+    &:active {
+        padding-top: @paddingTop + 1;
+        padding-bottom: @paddingTop - 1;
+    }
+}
+
+// Установка цвета для плоской кнопки.
+.setButtonFlatColor(@color: @cWhite) {
+    @textColor: contrast(@color);
+    &:hover {
+        background-color: @color;
+        color: @textColor;
+    }
+    &:active {
+        .setBoxShadowInset(0, 1px, 4px, 0, darken(@color, 50%));
+        background-color: @color;
+        color: @textColor;
+    }
+}
+
+// Установка начального фонового цвета плоской кнопки.
+.setButtonFlatBackColor(@color: @cWhite) {
+    @textColor: contrast(@color);
+    background-color: @color;
+    .setLinksAll(@textColor, none);
+}

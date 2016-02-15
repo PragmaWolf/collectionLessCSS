@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для установки параметров отображения плейсхолдеров
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Установка цвета плейсхолдера
+.setPlaceholderStyle(@color: lightgrey) {
+    &::-webkit-input-placeholder {
+        color: @color;
+        text-overflow: ellipsis;
+    }
+    &::-moz-placeholder {
+        color: @color;
+        text-overflow: ellipsis;
+    }
+    &:-moz-placeholder {
+        color: @color;
+        text-overflow: ellipsis;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+        text-overflow: ellipsis;
+    }
+}
+
+// Установка возможности изменения размера текстовой области формы
+.setTextareaResize(@value: none) {
+    -webkit-resize: @value;
+    -moz-resize: @value;
+    resize: @value;
+}

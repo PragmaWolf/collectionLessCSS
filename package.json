@@ -1,0 +1,29 @@
+{
+  "name": "collection_less_css",
+  "version": "1.0.0",
+  "description": "Collection LESS CSS: variables, properties, mixins, parametric mixins and ready-made shapes.",
+  "main": "style.less",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PragmaWolf/collectionLessCSS.git"
+  },
+  "keywords": [
+    "less",
+    "css",
+    "variables",
+    "properties",
+    "mixins",
+    "parametric",
+    "ready-made",
+    "shapes"
+  ],
+  "author": "PragmaWolf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PragmaWolf/collectionLessCSS/issues"
+  },
+  "homepage": "https://github.com/PragmaWolf/collectionLessCSS#readme"
+}

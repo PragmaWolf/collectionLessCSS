@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для установки параметров шрифтов и высоты линий текста
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости.
+@import (less) "settings.less";
+
+// Жирный шрифт
+.bold {
+    font-weight: 700;
+}
+
+// Отмена жирного шрифта
+.noBold {
+    font-weight: 400;
+}
+
+// Наклонный шрифт
+.italic {
+    font-style: italic;
+}
+
+// Курсив
+.oblique {
+    font-style: oblique;
+}
+
+// Отмена наклонного шрифта или курсива
+.noItalic {
+    font-style: normal;
+}
+
+// Жирный и наклонный шрифт
+.boldItalic {
+    .bold;
+    .italic;
+}
+
+// Нормализация шрифта (отмена жирного, наклонного и курсива)
+.normal {
+    .noBold;
+    .noItalic;
+}
+
+// Установка основного шрифта с указанием размера, жирности и высоты строки. Единая для PX и REM.
+.setFontMain(@size: 1, @weight: 400, @line: @size) {
+    .setFontSize(@size);
+    font-family: @fontMain;
+    font-weight: @weight;
+}
+
+// Установка основного шрифта с указанием жирности и высоты строки. Размер наследуется. Единая для PX и REM.
+.setFontMainInherit(@weight: 400, @line: 1) {
+    font-size: inherit;
+    font-family: @fontMain;
+    font-weight: @weight;
+}
+
+// Установка начертания основного шрифта.
+.setFontFamilyMain() {
+    font-family: @fontMain;
+}
+
+// Установка сжатого шрифта с указанием размера, жирности и высоты строки. Единая для PX и REM.
+.setFontCondensed(@size: 1, @weight: 400, @line: @size) {
+    font-family: @fontCondensed;
+    font-weight: @weight;
+    .setFontSize(@size);
+}
+
+// Установка сжатого шрифта с указанием жирности и высоты строки. Размер наследуется. Единая для PX и REM.
+.setFontCondensedInherit(@weight: 400, @line: 1) {
+    font-size: inherit;
+    font-family: @fontCondensed;
+    font-weight: @weight;
+}
+
+// Установка начертания сжатого шрифта.
+.setFontFamilyCondensed() {
+    font-family: @fontCondensed;
+}
+
+// Установка размера шрифта и высоты строки. Единая для PX и REM.
+.setFontSizeAndLineHeight(@size: 1, @line: @size) {
+    .setFontSize(@size);
+    .setLineHeight(round(@line * 1.15, @line));
+}
+
+// Установка размера шрифта. Единая для PX и REM.
+.setFontSize(@size: 1) {
+    .setFontSizePX(@size);
+    .setFontSizeREM(@size);
+}
+
+// Установка размера шрифта и его жирности. Единая для PX и REM.
+.setFontSizeWeight(@size: 1, @weight: 400) {
+    font-weight: @weight;
+    .setFontSize(@size);
+}
+
+// Установка высоты строки. Единая для PX и REM.
+.setLineHeight(@size: 1) {
+    .setLineHeightPX(@size);
+    .setLineHeightREM(@size);
+}
+
+// Установка размера шрифта в PX.
+.setFontSizePX(@size) {
+    font-size: unit((@size * 10), px); //fallback for old browsers
+}
+
+// Установка размера шрифта в REM.
+.setFontSizeREM(@size) {
+    font-size: unit(@size, rem);
+}
+
+// Установка высоты строки в PX.
+.setLineHeightPX(@size) {
+    line-height: unit((@size * 10), px); //fallback for old browsers
+}
+
+// Установка высоты строки в REM.
+.setLineHeightREM(@size) {
+    line-height: unit(@size, rem);
+}

@@ -1,0 +1,244 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси для форм.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/mixinsBorder.less";
+@import (less) "../lib/mixinsFontNLine.less";
+@import (less) "../lib/mixinsGradient.less";
+@import (less) "../lib/mixinsIndent.less";
+@import (less) "../lib/mixinsPosition.less";
+@import (less) "../lib/mixinsSize.less";
+@import (less) "../lib/mixinsText.less";
+@import (less) "../lib/mixinsVisible.less";
+@import (less) "presetButtons.less";
+
+// Базовая ширина формы
+@formWidth: 600px;
+
+form {
+    .block;
+    .relative;
+    .setSizes(@formWidth);
+    .setCenter();
+    .widthLarge {
+        width: @formWidth;
+    }
+    .widthBig {
+        width: @formWidth * 0.8 - 1px;
+    }
+    .widthMedium {
+        width: @formWidth * 0.6 - 1px;
+    }
+    .widthSmall {
+        width: @formWidth * 0.4 - 1px;
+    }
+    .widthTiny {
+        width: @formWidth * 0.2 - 1px;
+    }
+    .widthMicro {
+        width: @formWidth * 0.1 - 1px;
+    }
+    .element {
+        .block;
+        .setMargin(0, 0, 15px, 0);
+        .setFontMain(1.8, 400);
+        .setBoxSizing();
+        padding-right: 15px;
+        small {
+            .setFontSizeWeight(1.6, 300);
+        }
+    }
+    .notice {
+        .block;
+        .setFontSizeWeight(1.3, 400);
+        .setMargin(-2px, 0, 5px, 0);
+        color: @mcGrey600;
+        &:hover {
+            color: @cBlack;
+        }
+    }
+    .parsley-error {
+        .block;
+    }
+    .error {
+        .setFontSizeWeight(1.4, 400);
+        .setMargin(5px, 0);
+        color: @mcRed500;
+        border-top: 2px solid @mcRed500;
+        ul {
+            list-style: none;
+            .noIndent;
+        }
+        li {
+            .noIndent;
+            &:before {
+                content: "\f071";
+                .inline;
+                .setMargin(0, 5px, 2px, 0);
+                .verticalMiddle;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+        }
+    }
+    .required {
+        .inline;
+        .verticalMiddle;
+        .setFontSizeWeight(1.2, 400);
+        .setMargin(0, 0, 2px);
+        color: @mcBlue700;
+        &:before {
+            content: "\f06a";
+            .inline;
+            .setMargin(0, 5px, 2px, 0);
+            .verticalMiddle;
+            font: normal normal normal 14px/1 FontAwesome;
+            .setFontSizeWeight(1.4, 400);
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    }
+}
+
+label {
+    .inline;
+    .verticalMiddle;
+    .setFontFamilyMain();
+    .setFontSizeWeight(1.8, 400);
+    .setBoxSizing();
+    padding-right: 10px;
+    small {
+        .setFontFamilyMain();
+        .setFontSizeWeight(1.4, 300);
+    }
+}
+
+input[type="button"], button, input[type="submit"], input[type="reset"] {
+    .setButton();
+    .inline;
+    .relative;
+    .setMargin(5px, 8px);
+    &:disabled {
+        .noBoxShadow;
+        .setBorderLines(none, none, 2px solid @mcGrey500, none);
+        .setGradientVertical(@mcGrey200, @mcGrey300);
+        color: @mcGrey500;
+    }
+}
+
+input[type="submit"] {
+    .buttonGreen;
+}
+
+input[type="reset"] {
+    .buttonRed;
+}
+
+input[type="image"] {
+    .block;
+    .relative;
+    .noOutline;
+    .setMargin(10px, 16px);
+    .setBoxShadow(0, 1px, 2px, 0, @cShadow);
+    &:active {
+        .noBoxShadow;
+    }
+    &:disabled {
+        .noBoxShadow;
+        .setOpacity(0.5);
+    }
+}
+
+input[type="checkbox"], input[type="radio"] {
+    .inline;
+    .relative;
+    .verticalMiddle;
+    .setMargin(0, 5px);
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="date"], input[type="datetime-local"], input[type="datetime"], input[type="email"], input[type="month"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], input[type="file"], input[type="color"], textarea, select {
+    .block;
+    .noOutline;
+    .verticalMiddle;
+    .setBorderRadiusAll(@radiusSmall);
+    .setBorderLines(1px solid @mcGrey300, 1px solid @mcGrey300, 1px solid @mcGrey500, 1px solid @mcGrey300);
+    .setGradientVertical(@mcGrey200, @mcGrey50);
+    .setFontMain(1.8, 400);
+    .setPadding(0, 0, 0, 8px);
+    .setMargin(5px, 0);
+    .setBoxSizing();
+    height: 32px;
+    color: @mcGrey700;
+    &:focus {
+        .setBorderLines(1px solid @mcGrey400, 1px solid @mcGrey400, 1px solid @mcGrey600, 1px solid @mcGrey400);
+        .setGradientVertical(@mcGrey100, @cWhite);
+        .setBoxShadow(0, 1px, 1px, 0, @mcGrey400);
+        color: @cBlack;
+    }
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="date"], input[type="datetime-local"], input[type="datetime"], input[type="email"], input[type="month"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], input[type="file"], input[type="color"], textarea {
+    &:disabled, &:read-only {
+        .noBorder;
+        color: @mcGrey500;
+        background: @mcGrey50 none;
+    }
+}
+
+input[type="date"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"] {
+    .setPadding(0, 0, 0, 8px);
+    height: auto;
+    &:focus {
+        .setPadding(0, 0, 0, 8px);
+    }
+}
+
+input[type="color"] {
+    .inline;
+    .verticalMiddle;
+    .relative;
+    .setSizes(37px, 32px);
+    .setPadding(2px, 5px);
+    .setMargin(0, 5px);
+    &:focus {
+        .setPadding(2px, 5px);
+        .setBorderLines(1px solid @mcGrey500, 1px solid @mcGrey500, 1px solid @mcGrey500, 1px solid @mcGrey500);
+        background-color: @cWhite;
+    }
+}
+
+input[type="range"] {
+    .inline;
+    .verticalMiddle;
+    .relative;
+    .setMargin(0, 5px);
+}
+
+textarea {
+    .setPadding(3px, 8px);
+    height: auto;
+    resize: none;
+    &:focus {
+        .setPadding(3px, 8px);
+    }
+}
+
+select {
+    optgroup {
+        .setFontSizeWeight(1.6, 400);
+        background-color: @mcGrey700;
+        color: @cWhite;
+    }
+    option {
+        .setFontSizeWeight(1.3, 400);
+    }
+}

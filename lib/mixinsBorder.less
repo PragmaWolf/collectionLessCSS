@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для установки параметров границ элементов
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Удаление установок границ элемента.
+.noBorder {
+    border: none;
+}
+
+// Установка сразу всех границ элемента.
+.setBorder(@color: black, @size: 1px, @type: solid) {
+    border: @size @type @color;
+}
+
+// Установка границ элемента по-отдельности.
+.setBorderLines(@valueTop: none, @valueRight: @valueTop, @valueBottom: @valueTop, @valueLeft: @valueRight) {
+    border-top: @valueTop;
+    border-right: @valueRight;
+    border-bottom: @valueBottom;
+    border-left: @valueLeft;
+}
+
+// Установка цветов границ элемента по-отдельности.
+.setBorderLinesColor(@colorTop: black, @colorRight: @colorTop, @colorBottom: @colorTop, @colorLeft: @colorRight) {
+    border-top-color: @colorTop;
+    border-right-color: @colorRight;
+    border-bottom-color: @colorBottom;
+    border-left-color: @colorLeft;
+}
+
+// Установка ширины границ элемента по-отдельности.
+.setBorderLinesSize(@sizeTop: black, @sizeRight: @sizeTop, @sizeBottom: @sizeTop, @sizeLeft: @sizeRight) {
+    border-top-width: @sizeTop;
+    border-right-width: @sizeRight;
+    border-bottom-width: @sizeBottom;
+    border-left-width: @sizeLeft;
+}
+
+// Установка скругления границ элемента по-отдельности.
+.setBorderRadius(@topLeft: 0, @topRight: @topLeft, @bottomRight: @topRight, @bottomLeft: @bottomRight) {
+    -webkit-border-radius: @arguments;
+    -moz-border-radius: @arguments;
+    border-radius: @arguments;
+}
+
+// Установка общего скругления всех границ элемента.
+.setBorderRadiusAll(@radius: 0) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}

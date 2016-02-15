@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Настройки LESS для проекта
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// подтягиваем зависимости
+@import (less) "fontsStack.less";
+@import (less) "materialColors.less";
+
+// Путь до папки с картинками
+@imgUrl: '/images/';
+
+// Устанавливаем основные параметры для шрифтов
+// Основной шрифт
+@fontMain: 'Roboto', @fontArial;
+// Сжатый шрифт
+@fontCondensed: 'Roboto Condensed', @fontTrebuchetMS;
+// Базовый размер шрифта
+@fontSize: 62.5%;
+
+// Устанавливаем базовые размеры
+@pageMinWidth: 320px;
+@pageMaxWidth: 1920px;
+@radiusLarge: 15px;
+@radiusBig: 10px;
+@radiusMedium: 5px;
+@radiusSmall: 3px;
+@radiusTiny: 1px;
+
+// разрешения по ширине экрана
+@displayWidth320: 320px;
+@displayWidth480: 480px;
+@displayWidth768: 768px;
+@displayWidth1024: 1024px;
+@displayWidth1280: 1280px;
+@displayWidth1360: 1360px;
+@displayWidth1440: 1440px;
+@displayWidth1600: 1600px;
+@displayWidth1920: 1920px;
+@displayWidth2560: 2560px;
+
+// Базоыве цвета
+@cWhite: #ffffff;
+@cBlack: #000000;
+// фон страницы
+@cPageBack: @mcGrey200;
+// текст
+@cText: @mcGrey800;
+// ссылка
+@cLink: @mcBlueGrey700;
+// граница
+@cBorder: @mcGrey700;
+// тень
+@cShadow: @mcGrey800;
+// текст плейсхолдера
+@cPlaceholder: @mcGrey500;

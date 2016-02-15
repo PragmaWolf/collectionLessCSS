@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси для плейсхолдеров.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/mixinsAnimation.less";
+
+// Плейсхолдер становится прозрачным при наведении
+.setPlaceholderHide(@duration: 0.5s, @ease: ease) {
+    &::-webkit-input-placeholder {
+        opacity: 1;
+        .setTransition(opacity, @duration, @ease);
+    }
+    &::-moz-placeholder {
+        opacity: 1;
+        .setTransition(opacity, @duration, @ease);
+    }
+    &:-moz-placeholder {
+        opacity: 1;
+        .setTransition(opacity, @duration, @ease);
+    }
+    &:-ms-input-placeholder {
+        opacity: 1;
+        .setTransition(opacity, @duration, @ease);
+    }
+    &:focus::-webkit-input-placeholder {
+        opacity: 0;
+        .setTransition(opacity, @duration, @ease);
+    }
+    &:focus::-moz-placeholder {
+        opacity: 0;
+        .setTransition(opacity, @duration, @ease);
+    }
+    &:focus:-moz-placeholder {
+        opacity: 0;
+        .setTransition(opacity, @duration, @ease);
+    }
+    &:focus:-ms-input-placeholder {
+        opacity: 0;
+        .setTransition(opacity, @duration, @ease);
+    }
+}
+
+// Плейсхолдер уезжает вправо при наведении
+.setPlaceholderSlideRight(@indent: 500px, @duration: 0.5s, @ease: ease) {
+    &::-webkit-input-placeholder {
+        text-indent: 0;
+        .setTransition(text-indent, @duration, @ease);
+    }
+    &::-moz-placeholder {
+        text-indent: 0;
+        .setTransition(text-indent, @duration, @ease);
+    }
+    &:-moz-placeholder {
+        text-indent: 0;
+        .setTransition(text-indent, @duration, @ease);
+    }
+    &:-ms-input-placeholder {
+        text-indent: 0;
+        .setTransition(text-indent, @duration, @ease);
+    }
+    &:focus::-webkit-input-placeholder {
+        text-indent: @indent;
+        .setTransition(text-indent, @duration, @ease);
+    }
+    &:focus::-moz-placeholder {
+        text-indent: @indent;
+        .setTransition(text-indent, @duration, @ease);
+    }
+    &:focus:-moz-placeholder {
+        text-indent: @indent;
+        .setTransition(text-indent, @duration, @ease);
+    }
+    &:focus:-ms-input-placeholder {
+        text-indent: @indent;
+        .setTransition(text-indent, @duration, @ease);
+    }
+}
+
+// Плейсхолдер уезжает вниз при наведении
+.setPlaceholderSlideDown(@lineHeightStart: 20px, @lineHeightFinish: 100px, @duration: 0.5s, @ease: ease) {
+    &::-webkit-input-placeholder {
+        line-height: @lineHeightStart;
+        text-overflow: ellipsis;
+        .setTransition(line-height, @duration, @ease);
+    }
+    &::-moz-placeholder {
+        line-height: @lineHeightStart;
+        text-overflow: ellipsis;
+        .setTransition(line-height, @duration, @ease);
+    }
+    &:-moz-placeholder {
+        line-height: @lineHeightStart;
+        text-overflow: ellipsis;
+        .setTransition(line-height, @duration, @ease);
+    }
+    &:-ms-input-placeholder {
+        line-height: @lineHeightStart;
+        text-overflow: ellipsis;
+        .setTransition(line-height, @duration, @ease);
+    }
+    &:focus::-webkit-input-placeholder {
+        line-height: @lineHeightFinish;
+        text-overflow: ellipsis;
+        .setTransition(line-height, @duration, @ease);
+    }
+    &:focus::-moz-placeholder {
+        line-height: @lineHeightFinish;
+        text-overflow: ellipsis;
+        .setTransition(line-height, @duration, @ease);
+    }
+    &:focus:-moz-placeholder {
+        line-height: @lineHeightFinish;
+        text-overflow: ellipsis;
+        .setTransition(line-height, @duration, @ease);
+    }
+    &:focus:-ms-input-placeholder {
+        line-height: @lineHeightFinish;
+        text-overflow: ellipsis;
+        .setTransition(line-height, @duration, @ease);
+    }
+}

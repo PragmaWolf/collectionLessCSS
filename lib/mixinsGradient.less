@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для создания фоновых градиентов у элементов
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Вертикальный градиент из двух цветов
+.setGradientVertical(@start: lightgrey, @end: grey) {
+    background-color: @start;
+    background-image: -moz-linear-gradient(top, @start 0%, @end 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @start), color-stop(100%, @end));
+    background-image: -webkit-linear-gradient(top, @start 0%, @end 100%);
+    background-image: -o-linear-gradient(top, @start 0%, @end 100%);
+    background-image: -ms-linear-gradient(top, @start 0%, @end 100%);
+    background-image: linear-gradient(to bottom, @start 0%, @end 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{end}', GradientType=0);
+}
+
+// Горизонтальный градиент из двух цветов
+.setGradientHorizontal(@start: lightgrey, @end: grey) {
+    background-color: @start;
+    background-image: -moz-linear-gradient(left, @start 0%, @end 100%);
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @start), color-stop(100%, @end));
+    background-image: -webkit-linear-gradient(left, @start 0%, @end 100%);
+    background-image: -o-linear-gradient(left, @start 0%, @end 100%);
+    background-image: -ms-linear-gradient(left, @start 0%, @end 100%);
+    background-image: linear-gradient(to right, @start 0%, @end 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@{start}', endColorstr='@{end}', GradientType=1);
+}

@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для установки теней элементам
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+
+// Удаление тени у элемента.
+.noBoxShadow {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+
+// Удаление тени у текста.
+.noTextShadow {
+    text-shadow: none;
+}
+
+// Установка внешней тени элемента.
+.setBoxShadow(@x: 0, @y: 0, @blur: 5px, @pull: 0, @color: grey) {
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    -o-box-shadow: @arguments;
+    box-shadow: @arguments;
+}
+
+// Установка внутренней тени элемента.
+.setBoxShadowInset(@x: 0, @y: 0, @blur: 5px, @pull: 0, @color: grey) {
+    -webkit-box-shadow: inset @arguments;
+    -moz-box-shadow: inset @arguments;
+    -o-box-shadow: inset @arguments;
+    box-shadow: inset @arguments;
+}
+
+// Установка тени у текста.
+.setTextShadow (@x: 0, @y: 0, @blur: 5px, @color: grey) {
+    text-shadow: @arguments;
+}

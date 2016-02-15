@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Примеси для задания фонов у элементов
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости.
+@import (less) "settings.less";
+
+// Удаление фона элемента
+.noBackground {
+    background: none;
+}
+
+// Установка прозрачного фона у элемента.
+.backTransparent {
+    background: transparent;
+}
+
+// Фоновое изображение будет подгоняться под ширину элемента.
+.backgroundAutoWidth {
+    background-size: 100% auto;
+}
+
+// Установка способа отображения фона на прозрачных или пунктирных границах.
+.setBackgroundClip(@arg: padding-box) {
+    -webkit-background-clip: @arg;
+    -moz-background-clip: @arg;
+    background-clip: @arg;
+}
+
+// Установка фонового изображения для элемента.
+.setBackgroundUrl(@pic, @x: left, @y: top, @repeat: no-repeat) {
+    background: url('@{imgUrl}@{pic}') @repeat @x @y;
+}
+
+// Установка фиксированного фона во всю ширину элемента.
+.setBackgroundUrlFixed(@pic, @x: center, @y: center, @size: cover, @repeat: no-repeat) {
+    background: url('@{imgUrl}@{pic}') @repeat @x @y fixed;
+    -webkit-background-size: @size;
+    -moz-background-size: @size;
+    -o-background-size: @size;
+    background-size: @size;
+}
