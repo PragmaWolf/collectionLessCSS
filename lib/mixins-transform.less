@@ -10,8 +10,6 @@
 // Определяет расстояние от плоскости экрана до точки сходимости линий и тем самым задаёт, насколько выражен эффект перспективы. Точка сходимости по умолчанию располагается в центре элемента и может быть изменена с помощью свойства perspective-origin.
 // Расстояние от плоскости монитора до точки сходимости линий. Нулевое или отрицательное значение отменяет действие перспективы. Чем меньше значение, тем более выраженной выглядит перспектива и наоборот.
 .setPerspective (@value: 1000) {
-    -webkit-perspective: @value;
-    -moz-perspective: @value;
     perspective: @value;
 }
 
@@ -32,19 +30,11 @@
 
 // Трансформирует элемент, в частности, позволяет его масштабировать, вращать, сдвигать, наклонять, а также комбинировать виды трансформаций.
 .setTransform(@params) {
-    -webkit-transform: @params;
-    -moz-transform: @params;
-    -ms-transform: @params;
-    -o-transform: @params;
     transform: @params;
 }
 
 // Задает точку относительно которой применяется трансформация элемента.
 .setTransformOrigin (@x: center, @y: center) {
-    -webkit-transform-origin: @arguments;
-    -moz-transform-origin: @arguments;
-    -ms-transform-origin: @arguments;
-    -o-transform-origin: @arguments;
     transform-origin: @arguments;
 }
 

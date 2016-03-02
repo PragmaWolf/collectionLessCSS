@@ -1,0 +1,265 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси для форм.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/mixins-animation.less";
+@import (less) "../lib/mixins-border.less";
+@import (less) "../lib/mixins-font-and-line.less";
+@import (less) "../lib/mixins-gradient.less";
+@import (less) "../lib/mixins-indent.less";
+@import (less) "../lib/mixins-position.less";
+@import (less) "../lib/mixins-size.less";
+@import (less) "../lib/mixins-text.less";
+@import (less) "../lib/mixins-visible.less";
+@import (less) "preset-buttons.less";
+
+// Базовая ширина формы
+@formWidth: 600px;
+
+form {
+    .block;
+    .relative;
+    .setSizes(@formWidth);
+    .setCenter();
+    .form_element {
+        .inline;
+        .verticalTop;
+        .textLeft;
+        .setMargin(0, 10px, 15px);
+        .setBoxSizing();
+        //padding-right: 15px;
+        small {
+            .setFontSizeWeight(1.6, 300);
+        }
+    }
+    .form_element_button {
+        .inline;
+        .setMargin(20px, 0, 15px, 0);
+        .setBoxSizing();
+    }
+    .form_elw1600 {
+        width: 1600px !important;
+    }
+    .form_elw1000 {
+        width: 1000px !important;
+    }
+    .form_elw900 {
+        width: 900px !important;
+    }
+    .form_elw800 {
+        width: 800px !important;
+    }
+    .form_elw700 {
+        width: 700px !important;
+    }
+    .form_elw600 {
+        width: 600px !important;
+    }
+    .form_elw550 {
+        width: 550px !important;
+    }
+    .form_elw500 {
+        width: 500px !important;
+    }
+    .form_elw450 {
+        width: 450px !important;
+    }
+    .form_elw400 {
+        width: 400px !important;
+    }
+    .form_elw350 {
+        width: 350px !important;
+    }
+    .form_elw300 {
+        width: 300px !important;
+    }
+    .form_elw250 {
+        width: 250px !important;
+    }
+    .form_elw200 {
+        width: 200px !important;
+    }
+    .form_elw150 {
+        width: 150px !important;
+    }
+    .form_elw100 {
+        width: 100px !important;
+    }
+    .form_elw50 {
+        width: 50px !important;
+    }
+    .form_notice, .form_info {
+        .setFontFamilyCondensed();
+        .setFontSizeWeight(1.4, 300);
+        .setMargin(3px, 0, 3px);
+        .setLineHeight(1.6);
+        color: @mcGrey900;
+    }
+    .form_error {
+        .setFontSizeWeight(1.4, 400);
+        .setMargin(3px, 0, 3px);
+        .setLineHeight(1.8);
+        .setPadding(3px, 0, 0);
+        .setLineHeight(1.6);
+        color: @mcRed500;
+        border-top: 1px solid @mcRed500;
+        .material-icons {
+            .inline;
+            .verticalMiddle;
+            .setFontSizeWeight(1.6, 300);
+            .setMargin(-4px, 3px, 0, 0);
+        }
+    }
+    .form_required {
+        .inline;
+        .verticalTop;
+        .setFontSizeWeight(1.2, 400);
+        .setMargin(0, 0, 0);
+        color: @mcBlue700;
+        .material-icons {
+            .inline;
+            .verticalMiddle;
+            .setFontSizeWeight(1.4, 300);
+            .setMargin(0, 3px, 2px, 5px);
+        }
+    }
+}
+
+label {
+    .inline;
+    .setFontSizeWeight(1.6, 700);
+    .setMargin(0, 0, 3px);
+    .setLineHeight(1.8);
+}
+
+button {
+    .setButton();
+    .setMargin(5px, 10px);
+    //.setPadding(0, 20px);
+}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+    .setButton();
+    .setMargin(5px, 10px);
+    &:disabled {
+        .noBoxShadow;
+        .setBorderLines(none, none, 2px solid @mcGrey500, none);
+        .setGradientVertical(@mcGrey200, @mcGrey300);
+        color: @mcGrey500;
+    }
+}
+
+input[type="image"] {
+    .block;
+    .relative;
+    .noOutline;
+    .setMargin(10px, 16px);
+    .setBoxShadow(0, 1px, 2px, 0, @cShadow);
+    &:active {
+        .noBoxShadow;
+    }
+    &:disabled {
+        .noBoxShadow;
+        .setOpacity(0.5);
+    }
+}
+
+input[type="checkbox"], input[type="radio"] {
+    .inline;
+    .relative;
+    .verticalMiddle;
+    .setMargin(0, 5px, 2px);
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="date"], input[type="datetime-local"], input[type="datetime"], input[type="email"], input[type="month"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], input[type="file"], input[type="color"], textarea, select {
+    .block;
+    .noOutline;
+    .setBorder(@mcGrey400);
+    .setFontMain(1.8, 400);
+    .setBoxSizing();
+    .setSizes(100%, 29px);
+    .setLineHeight(2);
+    padding: 0 8px 0 8px;
+    background-color: @cWhite;
+    color: @mcGrey800;
+    &:focus {
+        .setBorder(@mcBlue700);
+        .setBoxShadowInset(0, 1px, 2px, 0, @mcGrey400);
+        color: @cBlack;
+    }
+}
+
+input[type="number"] {
+    .setPadding(0, 0, 0, 8px);
+}
+
+input[type="file"] {
+    .noPadding;
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="date"], input[type="datetime-local"], input[type="datetime"], input[type="email"], input[type="month"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="week"], input[type="file"], input[type="color"], textarea {
+    &:disabled {
+        .setBorder(@mcGrey400, 1px, dotted);
+        color: @mcGrey600;
+        background: transparent;
+    }
+    &:read-only {
+        .setBorder(@mcGrey400);
+        color: @mcGrey700;
+        background: transparent;
+    }
+}
+
+input[type="date"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"] {
+    .setPadding(0, 0, 0, 8px);
+    height: auto;
+    &:focus {
+        .setPadding(0, 0, 0, 8px);
+    }
+}
+
+input[type="color"] {
+    .inline;
+    .verticalMiddle;
+    .relative;
+    .setSizes(37px, 32px);
+    .setPadding(2px, 5px);
+    .setMargin(0, 5px);
+    &:focus {
+        .setPadding(2px, 5px);
+        .setBorderLines(1px solid @mcGrey500, 1px solid @mcGrey500, 1px solid @mcGrey500, 1px solid @mcGrey500);
+        background-color: @cWhite;
+    }
+}
+
+input[type="range"] {
+    .inline;
+    .verticalMiddle;
+    .relative;
+    .setMargin(0, 5px);
+}
+
+textarea {
+    .setPadding(3px, 8px);
+    height: auto;
+    resize: none;
+    &:focus {
+        .setPadding(3px, 8px);
+    }
+}
+
+select {
+    optgroup {
+        .setFontSizeWeight(1.6, 400);
+        background-color: @mcGrey700;
+        color: @cWhite;
+    }
+    option {
+        .setFontSizeWeight(1.4, 400);
+    }
+}

@@ -7,41 +7,42 @@
 // @see http://lesscss.org///
 //============================================================
 // Подгружаем зависимости
-@import (less) "../lib/mixinsAnimation.less";
+@import (less) "../lib/mixins-animation.less";
+@import (less) "../lib/mixins-visible.less";
 
 // Плейсхолдер становится прозрачным при наведении
 .setPlaceholderHide(@duration: 0.5s, @ease: ease) {
     &::-webkit-input-placeholder {
-        opacity: 1;
         .setTransition(opacity, @duration, @ease);
+        .setOpacity(1);
     }
     &::-moz-placeholder {
-        opacity: 1;
         .setTransition(opacity, @duration, @ease);
+        .setOpacity(1);
     }
     &:-moz-placeholder {
-        opacity: 1;
         .setTransition(opacity, @duration, @ease);
+        .setOpacity(1);
     }
     &:-ms-input-placeholder {
-        opacity: 1;
         .setTransition(opacity, @duration, @ease);
+        .setOpacity(1);
     }
     &:focus::-webkit-input-placeholder {
-        opacity: 0;
         .setTransition(opacity, @duration, @ease);
+        .setOpacity(0);
     }
     &:focus::-moz-placeholder {
-        opacity: 0;
         .setTransition(opacity, @duration, @ease);
+        .setOpacity(0);
     }
     &:focus:-moz-placeholder {
-        opacity: 0;
         .setTransition(opacity, @duration, @ease);
+        .setOpacity(0);
     }
     &:focus:-ms-input-placeholder {
-        opacity: 0;
         .setTransition(opacity, @duration, @ease);
+        .setOpacity(0);
     }
 }
 

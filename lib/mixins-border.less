@@ -43,14 +43,10 @@
 
 // Установка скругления границ элемента по-отдельности.
 .setBorderRadius(@topLeft: 0, @topRight: @topLeft, @bottomRight: @topRight, @bottomLeft: @bottomRight) {
-    -webkit-border-radius: @arguments;
-    -moz-border-radius: @arguments;
     border-radius: @arguments;
 }
 
 // Установка общего скругления всех границ элемента.
 .setBorderRadiusAll(@radius: 0) {
-    -webkit-border-radius: @radius;
-    -moz-border-radius: @radius;
     border-radius: @radius;
 }

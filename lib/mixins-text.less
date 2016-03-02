@@ -17,14 +17,29 @@
     text-align: left;
 }
 
+// Выравнивание текста влево по-горизонтали (принудительно).
+.textLeftI {
+    text-align: left !important;
+}
+
 // Выравнивание текста по-центру по-горизонтали.
 .textCenter {
     text-align: center;
 }
 
+// Выравнивание текста по-центру по-горизонтали (принудительно).
+.textCenterI {
+    text-align: center !important;
+}
+
 // Выравнивание текста вправо по-горизонтали.
 .textRight {
     text-align: right;
+}
+
+// Выравнивание текста вправо по-горизонтали (принудительно).
+.textRightI {
+    text-align: right !important;
 }
 
 // Выравнивание содержимого вверху по-вертикали.
@@ -67,20 +82,38 @@
     vertical-align: baseline !important;
 }
 
+// Подчеркивание текста - пунктиром.
+.textDecorDashed {
+    text-decoration-style: dashed;
+}
+
+// Подчеркивание текста - точками.
+.textDecorDotted {
+    text-decoration-style: dotted;
+}
+
+// Подчеркивание текста - волнистой линией.
+.textDecorWavy {
+    text-decoration-style: wavy;
+}
+
+// Подчеркивание текста - двойной линией.
+.textDecorDouble {
+    text-decoration-style: double;
+}
+
+// Подчеркивание текста - одинарной линией.
+.textDecorSolid {
+    text-decoration-style: solid;
+}
+
+// Установка оформления текста.
+.setTextDecor(@arg: solid) {
+    text-decoration: @arg;
+}
+
 // Установка параметров многоколоночного текста.
 .setColumns(@width: 250px, @count: 0, @gap: 50px, @ruleColor: lightgrey, @ruleStyle: solid, @ruleWidth: 1px) {
-    -webkit-column-width: @width;
-    -webkit-column-count: @count;
-    -webkit-column-gap: @gap;
-    -webkit-column-rule-color: @ruleColor;
-    -webkit-column-rule-style: @ruleStyle;
-    -webkit-column-rule-width: @ruleWidth;
-    -moz-column-width: @width;
-    -moz-column-count: @count;
-    -moz-column-gap: @gap;
-    -moz-column-rule-color: @ruleColor;
-    -moz-column-rule-style: @ruleStyle;
-    -moz-column-rule-width: @ruleWidth;
     column-width: @width;
     column-count: @count;
     column-gap: @gap;
@@ -92,15 +125,10 @@
 // Определяет параметры видимости текста в блоке, если текст целиком не помещается в заданную область.
 // Значения: clip || ellipsis || string || initial || inherit
 .setTextOverflow(@value: ellipsis) {
-    -ms-text-overflow: @value;
-    -o-text-overflow: @value;
     text-overflow: @value;
 }
 
 // Управляет поведением выделения текста и других элементов на странице, в частности, позволяет запретить выделение текста.
 .setUserSelect(@value: none) {
-    -webkit-user-select: @value;
-    -moz-user-select: @value;
-    -ms-user-select: @value;
     user-select: @value;
 }

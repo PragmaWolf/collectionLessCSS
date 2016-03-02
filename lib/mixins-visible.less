@@ -50,8 +50,6 @@
 // Установка параметров прозрачности блока.
 .setOpacity (@val: 1) {
     @forMS: @val * 100;
-    -webkit-opacity: @val;
-    -moz-opacity: @val;
     opacity: @val;
     -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{forMS})";
     filter: ~"alpha(opacity=@{forMS})";

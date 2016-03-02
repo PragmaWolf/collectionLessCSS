@@ -26,8 +26,6 @@
 
 // Установка способа отображения фона на прозрачных или пунктирных границах.
 .setBackgroundClip(@arg: padding-box) {
-    -webkit-background-clip: @arg;
-    -moz-background-clip: @arg;
     background-clip: @arg;
 }
 
@@ -39,8 +37,5 @@
 // Установка фиксированного фона во всю ширину элемента.
 .setBackgroundUrlFixed(@pic, @x: center, @y: center, @size: cover, @repeat: no-repeat) {
     background: url('@{imgUrl}@{pic}') @repeat @x @y fixed;
-    -webkit-background-size: @size;
-    -moz-background-size: @size;
-    -o-background-size: @size;
     background-size: @size;
 }

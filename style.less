@@ -6,51 +6,46 @@
 // @description LESS CSS параметры и миксины для проекта
 // @see http://lesscss.org///
 //============================================================
-
-/*
-  ПОДГРУЖАЕМ ПАРАМЕТРЫ И НАСТРОЙКИ
-*/
-@import (less) "lib/fontsStack.less";
-@import (less) "lib/materialColors.less";
+// ПОДГРУЖАЕМ СТОРОННИЕ СТИЛИ
+//@import (less) "vendors/themify-icons.less";
+@import (less) "vendors/loading-bar.less";
+@import (less) "vendors/roboto-font.less";
+@import (less) "vendors/material-icon-font.less";
+// ПОДГРУЖАЕМ ПАРАМЕТРЫ И НАСТРОЙКИ (порядок важен)
+@import (less) "lib/fonts-stack.less";
+@import (less) "lib/material-colors.less";
 @import (less) "lib/settings.less";
-/*
-  ПОДГРУЖАЕМ БИБЛИОТЕКИ МИКСИНОВ
-*/
-@import (less) "lib/mixinsAnimation.less";
-@import (less) "lib/mixinsBackground.less";
-@import (less) "lib/mixinsBorder.less";
-@import (less) "lib/mixinsCalc.less";
-@import (less) "lib/mixinsClearfix.less";
-@import (less) "lib/mixinsCursor.less";
-@import (less) "lib/mixinsFlexbox.less";
-@import (less) "lib/mixinsFontNLine.less";
-@import (less) "lib/mixinsForm.less";
-@import (less) "lib/mixinsGradient.less";
-@import (less) "lib/mixinsIndent.less";
-@import (less) "lib/mixinsLink.less";
-@import (less) "lib/mixinsOutline.less";
-@import (less) "lib/mixinsPosition.less";
-@import (less) "lib/mixinsShadow.less";
-@import (less) "lib/mixinsSize.less";
-@import (less) "lib/mixinsText.less";
-@import (less) "lib/mixinsTransform.less";
-@import (less) "lib/mixinsVisible.less";
-/*
-  ПОДГРУЖАЕМ ПРЕСЕТЫ
-*/
-@import (less) "presets/presetBorders.less";
-@import (less) "presets/presetBoxes.less";
-@import (less) "presets/presetButtons.less";
-@import (less) "presets/presetForms.less";
-@import (less) "presets/presetGradients.less";
-@import (less) "presets/presetPlaceholders.less";
-@import (less) "presets/presetReset.less";
-@import (less) "presets/presetShapes.less";
-@import (less) "presets/presetTags.less";
-/*
-  ПОДГРУЖАЕМ СТОРОННИЕ СТИЛИ
-*/
-@import (css) "vendors/themify-icons.css";
+// ПОДГРУЖАЕМ БИБЛИОТЕКИ МИКСИНОВ
+@import (less) "lib/mixins-animation.less";
+@import (less) "lib/mixins-background.less";
+@import (less) "lib/mixins-border.less";
+@import (less) "lib/mixins-calc.less";
+@import (less) "lib/mixins-clearfix.less";
+@import (less) "lib/mixins-cursor.less";
+@import (less) "lib/mixins-flexbox.less";
+@import (less) "lib/mixins-font-and-line.less";
+@import (less) "lib/mixins-form.less";
+@import (less) "lib/mixins-gradient.less";
+@import (less) "lib/mixins-indent.less";
+@import (less) "lib/mixins-link.less";
+@import (less) "lib/mixins-outline.less";
+@import (less) "lib/mixins-position.less";
+@import (less) "lib/mixins-shadow.less";
+@import (less) "lib/mixins-size.less";
+@import (less) "lib/mixins-text.less";
+@import (less) "lib/mixins-transform.less";
+@import (less) "lib/mixins-visible.less";
+// ПОДГРУЖАЕМ ПРЕСЕТЫ (порядок важен)
+@import (less) "presets/preset-reset.less";
+@import (less) "presets/preset-tags.less";
+@import (less) "presets/preset-borders.less";
+@import (less) "presets/preset-boxes.less";
+@import (less) "presets/preset-gradients.less";
+@import (less) "presets/preset-placeholders.less";
+@import (less) "presets/preset-buttons.less";
+@import (less) "presets/preset-forms.less";
+@import (less) "presets/preset-shapes.less";
+@import (less) "presets/preset-texts.less";
 
 // =============== ОФОРМЛЕНИЕ ===============
 // большие экраны (от 1600 пикселей по ширине)

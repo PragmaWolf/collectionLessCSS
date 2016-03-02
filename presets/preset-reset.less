@@ -7,17 +7,17 @@
 // @see http://lesscss.org///
 //============================================================
 // Подгружаем зависимости
-@import (less) "../lib/mixinsBackground.less";
-@import (less) "../lib/mixinsBorder.less";
-@import (less) "../lib/mixinsCursor.less";
-@import (less) "../lib/mixinsFontNLine.less";
-@import (less) "../lib/mixinsIndent.less";
-@import (less) "../lib/mixinsLink.less";
-@import (less) "../lib/mixinsOutline.less";
-@import (less) "../lib/mixinsPosition.less";
-@import (less) "../lib/mixinsSize.less";
-@import (less) "../lib/mixinsText.less";
-@import (less) "../lib/mixinsVisible.less";
+@import (less) "../lib/mixins-background.less";
+@import (less) "../lib/mixins-border.less";
+@import (less) "../lib/mixins-cursor.less";
+@import (less) "../lib/mixins-font-and-line.less";
+@import (less) "../lib/mixins-indent.less";
+@import (less) "../lib/mixins-link.less";
+@import (less) "../lib/mixins-outline.less";
+@import (less) "../lib/mixins-position.less";
+@import (less) "../lib/mixins-size.less";
+@import (less) "../lib/mixins-text.less";
+@import (less) "../lib/mixins-visible.less";
 
 abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, main, mark, menu, nav, object, ol, p, pre, q, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
     .noIndent;
@@ -41,7 +41,6 @@ html {
     font-size: @fontSize;
     overflow-y: scroll;
     unicode-bidi: embed;
-    -webkit-locale: ru;
     locale: ru;
 }
 
@@ -56,6 +55,8 @@ body {
     display: table;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-smooth: always;
+    scroll-behavior: smooth;
 }
 
 [hidden], template {
@@ -146,8 +147,8 @@ dfn {
 
 h1, h2, h3, h4, h5, h6 {
     .setFontFamilyMain();
-    font-weight: 700;
-    color: @cBlack;
+    font-weight: 400;
+    color: @cText;
 }
 
 h1 {

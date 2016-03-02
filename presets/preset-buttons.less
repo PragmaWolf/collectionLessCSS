@@ -1,0 +1,176 @@
+@charset "utf-8";
+
+//============================================================
+// Коллекция LESS CSS: Подготовленные примеси для кнопок.
+//
+// @description LESS CSS параметры и миксины для проекта
+// @see http://lesscss.org///
+//============================================================
+// Подгружаем зависимости
+@import (less) "../lib/settings.less";
+@import (less) "../lib/material-colors.less";
+@import (less) "../lib/mixins-border.less";
+@import (less) "../lib/mixins-cursor.less";
+@import (less) "../lib/mixins-font-and-line.less";
+@import (less) "../lib/mixins-gradient.less";
+@import (less) "../lib/mixins-indent.less";
+@import (less) "../lib/mixins-link.less";
+@import (less) "../lib/mixins-outline.less";
+@import (less) "../lib/mixins-position.less";
+@import (less) "../lib/mixins-size.less";
+@import (less) "../lib/mixins-shadow.less";
+@import (less) "../lib/mixins-text.less";
+@import (less) "../lib/mixins-visible.less";
+
+
+
+// Оформление объемной кнопки.
+.setButton() {
+    .inline;
+    .relative;
+    .caps;
+    .cursorHand;
+    .noBorder;
+    .noOutline;
+    .textCenter;
+    .verticalMiddle;
+    .setBorderRadius(@radiusSmall);
+    .setFontMain(1.4, 700);
+    .setPadding(8px, 20px, 6px, 20px);
+    .setBoxSizing();
+    .setLineHeight(2);
+    background-color: @mcGrey300;
+    overflow: hidden;
+    &:disabled {
+        background: @mcGrey200;
+        color: @mcGrey400;
+    }
+    .material-icons {
+        .verticalTop;
+        .setFontSizeWeight(2, 300);
+        .setMargin(0, 5px, 0, 0);
+    }
+}
+
+// Установка цвета для объемной кнопки.
+.setButtonColor(@color: @cWhite) {
+    //.setBoxShadow(0, 1px, 2px, 0, @mcBlueGrey300);
+    .setBorderLines(none, none, 2px solid darken(@color, 20%), none);
+    .setGradientVertical(@color, darken(@color, 10%));
+    color: contrast(darken(@color, 5%));
+    &:active {
+        border-bottom-color: darken(@color, 5%);
+        .setGradientVertical(darken(@color, 10%), @color);
+    }
+    &:disabled {
+        border-bottom-color: @mcGrey300;
+        background: @mcGrey200;
+        color: @mcGrey400;
+    }
+}
+
+// Объемная кнопка.
+.button {
+    .setButton();
+}
+
+// Цвета для подготовленных кнопок.
+.buttonRed {
+    .setButtonColor(@mcRed400);
+}
+
+.buttonOrange {
+    .setButtonColor(@mcOrange500);
+}
+
+.buttonYellow {
+    .setButtonColor(@mcAmber500);
+}
+
+.buttonGreen {
+    .setButtonColor(@mcGreen500);
+}
+
+.buttonCyan, .buttonLightBlue {
+    .setButtonColor(@mcCyan500);
+}
+
+.buttonBlue {
+    .setButtonColor(@mcBlue500);
+}
+
+.buttonPurple, .buttonViolet {
+    .setButtonColor(@mcPurple500);
+}
+
+.buttonWhite, .buttonLightGrey {
+    .setButtonColor(@mcGrey100);
+}
+
+.buttonGrey {
+    .setButtonColor(@mcGrey400);
+}
+
+.buttonBlack, .buttonDarkGrey {
+    .setButtonColor(@mcGrey800);
+}
+
+// Установка цвета для плоской кнопки.
+.setButtonFlatColor(@color: @cWhite, @colorHover: @cWhite) {
+    background-color: @color;
+    color: contrast(@color);
+    &:hover {
+        background-color: @colorHover;
+        color: contrast(@colorHover);
+    }
+    &:active {
+        .setBoxShadowInset(0, 1px, 4px, 0, darken(@colorHover, 40%));
+        background-color: @colorHover;
+        color: contrast(@colorHover);
+    }
+    &:disabled, &:disabled:hover {
+        background: @mcGrey200;
+        color: @mcGrey400;
+    }
+}
+
+// Цвета для плоских кнопок.
+.buttonFlatRed {
+    .setButtonFlatColor(@mcRed300, @mcRed500);
+}
+
+.buttonFlatOrange {
+    .setButtonFlatColor(@mcOrange300, @mcOrange500);
+}
+
+.buttonFlatYellow {
+    .setButtonFlatColor(@mcAmber300, @mcAmber500);
+}
+
+.buttonFlatGreen {
+    .setButtonFlatColor(@mcGreen300, @mcGreen500);
+}
+
+.buttonFlatCyan, .buttonFlatLightBlue {
+    .setButtonFlatColor(@mcCyan300, @mcCyan500);
+}
+
+.buttonFlatBlue {
+    .setButtonFlatColor(@mcBlue300, @mcBlue500);
+}
+
+.buttonFlatPurple, .buttonFlatViolet {
+    .setButtonFlatColor(@mcPurple300, @mcPurple500);
+}
+
+.buttonFlatWhite, .buttonFlatLightGrey {
+    .setButtonFlatColor(@mcGrey300, @mcGrey500);
+}
+
+.buttonFlatGrey {
+    .setButtonFlatColor(@mcGrey500, @mcGrey700);
+}
+
+.buttonFlatBlack, .buttonFlatDarkGrey {
+    .setButtonFlatColor(@mcGrey700, @mcGrey900);
+}

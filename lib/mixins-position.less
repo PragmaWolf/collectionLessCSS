@@ -70,6 +70,13 @@
     left: @left;
 }
 
+// Установка абсолютного позиционирования с указанием верхнего и левого отступа.
+.setFixed(@top: 0, @left: 0) {
+    .fixed;
+    top: @top;
+    left: @left;
+}
+
 // Центрирование элемента относительно родителя.
 .setCenter(@indent: 0, @indent2: @indent) {
     margin: @indent auto @indent2 auto;

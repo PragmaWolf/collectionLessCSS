@@ -1,6 +1,6 @@
 {
   "name": "collection_less_css",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Collection LESS CSS: variables, properties, mixins, parametric mixins and ready-made shapes.",
   "main": "style.less",
   "scripts": {

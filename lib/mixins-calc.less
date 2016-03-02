@@ -10,7 +10,4 @@
 // Кросс-браузерная примесь для использования calc с любым параметром CSS.
 .setCalc(@prop, @val) {
         @{prop}: calc(~'@{val}');
-        @{prop}: -moz-calc(~'@{val}');
-        @{prop}: -webkit-calc(~'@{val}');
-        @{prop}: -o-calc(~'@{val}');
 }
